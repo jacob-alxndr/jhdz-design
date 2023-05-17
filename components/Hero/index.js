@@ -102,7 +102,7 @@ const Hero = (props) => {
 
   return (
     <div className={classNames(styles.container)}>
-      <div className={classNames(styles.header, "padding-x-lg")}>
+      <div className={classNames(styles.header, "padding-x-sm")}>
         <div className={styles.content}>
           <div className={classNames(styles.eyebrow)}>{eyebrow}</div>
           <div className={classNames(styles.title, `u-heading--${titleSize}`)}>

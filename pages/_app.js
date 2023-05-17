@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { mobileDetect } from "@utils/mobileDetect";
 import GlobalNavigation from "@components/Global/GlobalNavigation";
 import GlobalFooter from "@components/Global/GlobalFooter";
-import { ibmPlexMono, ibmPlexSans } from "@lib/fonts";
+import { workSans, workSansMono } from "@lib/fonts";
 import { useStore } from "@lib/store";
 
 export default function App({ Component, pageProps }) {
@@ -42,8 +42,8 @@ export default function App({ Component, pageProps }) {
         ></link> */}
         <style>{`
           :root {
-            --font-primary: ${ibmPlexSans.style.fontFamily};
-            --font-secondary: ${ibmPlexMono.style.fontFamily};
+            --font-primary: ${workSans.style.fontFamily};
+            --font-secondary: ${workSansMono.style.fontFamily};
 
           }
         `}</style>

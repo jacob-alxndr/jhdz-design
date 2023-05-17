@@ -9,8 +9,8 @@
 
   display: flex;
   // justify-content: center;
-  min-height: 80vh;
-  margin-bottom: 4rem;
+  min-height: 70vh;
+  margin-bottom: 0rem;
   // opacity: 0;
   position: relative;
   text-align: center;
@@ -32,8 +32,8 @@
   }
   .description {
     p {
-      @include global.fontSize(38, 48);
-      color: global.$color-grey-40;
+      @include global.fontSize(24, 32);
+      color: global.$color-black;
       font-weight: 100;
     }
   }
