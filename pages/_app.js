@@ -34,6 +34,7 @@ export default function App({ Component, pageProps }) {
         <link rel="preconnect" href={`//graphql.datocms.com`}></link>
         <link rel="dns-preconnect" href="https://datocms-assets.com"></link>
         <link rel="dns-prefetch" href="https://datocms-assets.com"></link>
+        <link rel="icon" href="/favicon.ico" />
         {/* EXAMPLE:: Adobe typekit integration */}
         {/* <link
           rel="stylesheet"

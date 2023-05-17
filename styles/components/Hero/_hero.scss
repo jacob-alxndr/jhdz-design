@@ -47,7 +47,7 @@
     }
     .description {
       a {
-        @include global.fontSize(14, 18);
+        @include global.fontSize(18, 20);
       }
     }
   }
