@@ -36,6 +36,11 @@
       color: global.$color-black;
       font-weight: 100;
     }
+    @include global.mq("phablet") {
+      a {
+        @include global.fontSize(14, 18);
+      }
+    }
   }
 }
 

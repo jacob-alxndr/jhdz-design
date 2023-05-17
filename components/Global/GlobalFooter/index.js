@@ -42,7 +42,7 @@ const GlobalFooter = (props) => {
         </div>
         <div className={styles.grid}>{renderColumns()}</div>
         <div className={styles.legal}>
-          &copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_SITE_NAME}
+          &copy;{new Date().getFullYear()} {process.env.NEXT_PUBLIC_SITE_NAME}
         </div>
       </div>
     </footer>
