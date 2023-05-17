@@ -15,6 +15,9 @@
   position: relative;
   text-align: center;
   width: 100%;
+  @include global.mq("phablet") {
+    min-height: 60vh;
+  }
 }
 
 .mask,
@@ -26,6 +29,7 @@
   display: flex;
   justify-content: center;
   // max-width: global.rem(1100);
+
   .title,
   .description {
     text-align: left;
@@ -36,7 +40,12 @@
       color: global.$color-black;
       font-weight: 100;
     }
-    @include global.mq("phablet") {
+  }
+  @include global.mq("phablet") {
+    .title {
+      // max-width: 10rem;
+    }
+    .description {
       a {
         @include global.fontSize(14, 18);
       }
@@ -55,8 +64,8 @@
   z-index: 1;
 
   @include global.mq("phablet") {
-    padding-left: map_get(global.$component-padding-x, "mobile");
-    padding-right: map_get(global.$component-padding-x, "mobile");
+    // padding-left: map_get(global.$component-padding-x, "mobile");
+    // padding-right: map_get(global.$component-padding-x, "mobile");
   }
 
   :global(body.is-touch) & {
