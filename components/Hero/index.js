@@ -5,10 +5,13 @@ import classNames from "classnames";
 // import { useIntersection } from "react-use";
 import styles from "@styles/Hero/index.module.scss";
 import mapping from "./mapping";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { StructuredText } from "react-datocms";
+import { useStore } from "@lib/store";
 const Hero = (props) => {
   const [data, setData] = useState(props);
+  const lenis = useStore(({ lenis }) => lenis);
+
   const {
     // index,
     eyebrow,
@@ -20,6 +23,20 @@ const Hero = (props) => {
     backgroundImage,
     backgroundMedia,
   } = data;
+  useEffect(() => {
+    if (lenis) {
+      lenis.on("scroll", (e) => {
+        console.log(e.targetScroll);
+      });
+    }
+
+    // GSAP ScrollTrigger integration
+    // lenis.on('scroll', ScrollTrigger.update)
+    // gsap.ticker.add((time)=>{
+    //   lenis.raf(time * 1000)
+    // })
+  }, [lenis]);
+
   // console.log("hero props", props);
 
   // const hasInit = useStore(({ hasInit }) => hasInit);
@@ -121,7 +138,7 @@ const Hero = (props) => {
         className={styles.background}
         style={{
           backgroundColor: `${backgroundColor?.hex}`,
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: backgroundImage ? `url(${backgroundImage})` : null,
           backgroundPosition: `${backgroundMedia[0]?.horizontalAlignment} ${backgroundMedia[0]?.verticalAlignment}`,
         }}
       ></div>

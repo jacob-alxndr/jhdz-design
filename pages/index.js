@@ -15,10 +15,10 @@ const components = {
     comp: dynamic(() => import("@components/Hero")),
     mapping: require(`@components/Hero/mapping`),
   },
-  card_list: {
-    comp: dynamic(() => import("@components/CardList")),
-    mapping: require(`@components/CardList/mapping`),
-  },
+  // card_list: {
+  //   comp: dynamic(() => import("@components/CardList")),
+  //   mapping: require(`@components/CardList/mapping`),
+  // },
   // global_footer: {
   //   comp: dynamic(() => import('../components/Global/GlobalFooter')),
   //   mapping: require('../components/Global/GlobalFooter/mapping'),
@@ -44,10 +44,13 @@ export default function Home({ data }) {
     </div>
   );
 }
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+  console.log("context.preview", context.preview);
   const data = await request({
     query: GET_HOME,
     variables: { limit: 10 },
+    includeDrafts: context.preview,
+    preview: context.preview,
   });
   return {
     props: { data },
