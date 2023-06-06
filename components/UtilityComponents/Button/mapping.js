@@ -1,4 +1,4 @@
-import linkResolver from "../../lib/routes";
+import linkResolver from "../../../lib/routes";
 // import mediaMapping, { getMediaType } from '../Media/mapping';
 
 // const getMappedDrawer = (buttonChild) => {
@@ -45,6 +45,8 @@ const getButtonType = (button) => {
       return "internal";
     case "action_button":
       return "no-action";
+    case "anchor_button":
+      return "anchor_button";
     case "external_navigation_button":
     case "external_button":
     default:
@@ -77,11 +79,23 @@ const getButton = (button) => {
     nestedButtons = getButtons(button?.buttons);
     buttonType = "category";
   }
-
+  console.log("link", button);
   // Get nested media
   // const media = !button.openInDrawer && mediaMapping(button?.media?.[0]);
-  const buttonUrl = buttonType === "internal" ? link : button?.link;
-
+  const getButtonURL = (buttonType) => {
+    switch (buttonType) {
+      case "internal":
+        return link;
+      case "no-action":
+        return button?.link;
+      case "anchor_button":
+        return `#${button?.link}`;
+      case "external_button":
+      default:
+        return button?.link;
+    }
+  };
+  const buttonUrl = getButtonURL(buttonType);
   return {
     buttonId: button?.id,
     buttonText: button?.label,
@@ -98,10 +112,6 @@ const getButton = (button) => {
     },
     // drawer: getMappedDrawer(button),
     buttons: nestedButtons,
-    tracking: button?.analytics?.[0] && {
-      action: "click",
-      ...button.analytics[0],
-    },
   };
 };
 

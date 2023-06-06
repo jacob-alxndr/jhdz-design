@@ -1,147 +1,82 @@
 // import { useStore } from "@lib/store";
 import classNames from "classnames";
-// import propTypes from "prop-types";
-// import { useEffect, useMemo, useRef, useState } from "react";
-// import { useIntersection } from "react-use";
+
 import styles from "@styles/Hero/index.module.scss";
 import mapping from "./mapping";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { StructuredText } from "react-datocms";
 import { useStore } from "@lib/store";
+import { Image } from "react-datocms";
+import { renderButtons } from "@components/UtilityComponents/Button/utils";
 const Hero = (props) => {
   const [data, setData] = useState(props);
   const lenis = useStore(({ lenis }) => lenis);
-
   const {
-    // index,
-    eyebrow,
     title,
     subtitle,
     description,
+    image,
+    buttons,
     titleSize,
-    backgroundColor,
-    backgroundImage,
-    backgroundMedia,
+    subtitleSize,
+    verticalPaddingTop,
+    verticalPaddingBottom,
+    verticalPaddingTopMobile,
+    verticalPaddingBottomMobile,
   } = data;
-  useEffect(() => {
-    if (lenis) {
-      lenis.on("scroll", (e) => {
-        console.log(e.targetScroll);
-      });
-    }
-
-    // GSAP ScrollTrigger integration
-    // lenis.on('scroll', ScrollTrigger.update)
-    // gsap.ticker.add((time)=>{
-    //   lenis.raf(time * 1000)
-    // })
-  }, [lenis]);
-
-  // console.log("hero props", props);
-
-  // const hasInit = useStore(({ hasInit }) => hasInit);
-  // const setHasInit = useStore((state) => state.setHasInit);
-  // const setNavTheme = useStore((state) => state.setNavTheme);
-  // const _thresholds = useStore(({ thresholds }) => thresholds);
-  // const thresholds = useMemo(() => {
-  //   const sortedThresholds = Object.values(_thresholds).sort((a, b) => a - b);
-  //   return sortedThresholds;
-  // }, [_thresholds]);
-
-  // const el = useRef();
-  // const content = useRef();
-  // const scrollText = useRef();
-  // const debug = useDebug();
-  // const intersection = useIntersection(scrollText, {
-  //   threshold: 1,
-  // });
-
   // useEffect(() => {
-  //   if (intersection?.isIntersecting) {
-  //     setNavTheme('dark');
-  //   } else {
-  //     setNavTheme('light');
+  //   if (lenis) {
+  //     lenis.on("scroll", (e) => {
+  //       console.log(e.targetScroll);
+  //     });
   //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [intersection]);
-  // useEffect(() => {
-  //   console.log("UE props:", props);
-  // }, [props]);
-
-  // const onMouseMove = ({ clientX, clientY }) => {
-  //   const {
-  //     current: { last, current, ease },
-  //   } = state;
-  //   current.x =
-  //     (clientX / state.current.ww - 0.5) * state.current.xThreshold * -1;
-  //   current.y =
-  //     (clientY / state.current.wh - 0.5) * state.current.yThreshold * -1;
-  // };
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setVisible(true);
-  //     // state.current.flags.hasAnimated = true;
-  //   }, 500);
-  // if (hasInit) {
-  //   animateIn(TRANSITION_DURATION);
-  // }
-  // window.addEventListener('mousemove', onMouseMove, false);
-  // Emitter.on('ready', () => {
-  //   setHasInit(true);
-  //   animateIn(state.current.animationDelay);
   // });
-
-  // return () => {
-  //   window.removeEventListener('mousemove', onMouseMove, false);
-  //   Emitter.off('ready', animateIn);
-  //   setNavTheme('light');
-  // };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // useLayoutEffect(() => {
-  //   state.current.ww = window.innerWidth;
-  //   state.current.wh = window.innerHeight;
-  // }, []);
-
-  // useScroll(({ scroll }) => {
-  //   state.current.scroll = scroll;
-  // });
-
-  // const animateIn = (delay = 0) => {
-  //   // timeline
-  //   setTimeout(() => {
-  //     setVisible(true);
-  //     state.current.flags.hasAnimated = true;
-  //   }, delay);
-  // };
 
   return (
-    <div className={classNames(styles.container)}>
-      <div className={classNames(styles.header, "padding-x-sm")}>
-        <div className={styles.content}>
-          <div className={classNames(styles.eyebrow)}>{eyebrow}</div>
-          <div className={classNames(styles.title, `u-heading--${titleSize}`)}>
-            {title}
-          </div>
-          <div className={classNames(styles.title, `u-heading--${titleSize}`)}>
-            {subtitle}
-          </div>
+    <div
+      className={classNames(
+        styles.container,
+        "padding-x-sm",
+        `u-vertical-padding--top-${verticalPaddingTop}`,
+        `u-vertical-padding--bottom-${verticalPaddingBottom}`,
+        `u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`,
+        `u-vertical-padding--bottom-${verticalPaddingBottomMobile}-mobile`
+      )}
+    >
+      <div className={classNames(styles.content, styles.heading)}>
+        <div className={classNames(styles.title, `u-heading--${titleSize}`)}>
+          {title}
+        </div>
+        <div className={classNames(`u-subheading--${subtitleSize}`)}>
+          {subtitle}
+        </div>
+      </div>
+      <div className={styles.content}>
+        <div className={styles.textContent}>
+          {" "}
           <div className={styles.description}>
             <StructuredText data={description} />
           </div>
+          {buttons && (
+            <div className={styles.buttonList}>
+              {renderButtons(buttons, styles.buttons)}
+            </div>
+          )}
         </div>
-      </div>
 
-      <div
-        className={styles.background}
-        style={{
-          backgroundColor: `${backgroundColor?.hex}`,
-          backgroundImage: backgroundImage ? `url(${backgroundImage})` : null,
-          backgroundPosition: `${backgroundMedia[0]?.horizontalAlignment} ${backgroundMedia[0]?.verticalAlignment}`,
-        }}
-      ></div>
+        {image &&
+          image.map((img) => (
+            <div className={styles.image} key={img?.id}>
+              <Image
+                alt={title}
+                fadeInDuration={2000}
+                lazyLoad={true}
+                priority={true}
+                data={img?.image?.responsiveImage}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

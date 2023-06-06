@@ -1,122 +1,69 @@
 @use "/styles/shared/global";
 
 .container {
-  // background: var(--backgroundHero);
-  // background-size: var(--backgroundSizeHero);
-  // background-size: 60%;
-
-  // Temp
-
   display: flex;
-  // justify-content: center;
+  flex-direction: column;
   min-height: 70vh;
-  margin-bottom: 0rem;
-  // opacity: 0;
   position: relative;
-  text-align: center;
   width: 100%;
+  & .content:not(:first-child) {
+    margin-top: global.rem(24);
+  }
   @include global.mq("phablet") {
     min-height: 60vh;
   }
 }
-
-.mask,
-.scroll {
-  z-index: 1;
-}
-
-.header {
+.textContent {
   display: flex;
-  justify-content: center;
-  // max-width: global.rem(1100);
-
-  .title,
+  flex-direction: column;
+  align-items: flex-start;
   .description {
+    max-width: global.rem(662);
     text-align: left;
-  }
-  .description {
+    a {
+      text-decoration: underline;
+    }
     p {
       @include global.fontSize(24, 32);
       color: global.$color-black;
       font-weight: 100;
+      margin: 0;
     }
-  }
-  @include global.mq("phablet") {
-    .title {
-      // max-width: 10rem;
-    }
-    .description {
+    @include global.mq("phablet") {
       a {
         @include global.fontSize(18, 20);
       }
     }
   }
+  .buttonList {
+    height: 100%;
+  }
+  .buttons {
+    height: 100%;
+    padding-top: global.rem(32);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: flex-end;
+  }
 }
 
+.heading {
+  align-items: baseline;
+}
 .content {
+  border-bottom: 1px solid global.$color-black;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  max-width: global.rem(980);
+  flex-direction: row;
+  column-gap: global.rem(64);
+  justify-content: space-between;
+  padding: global.rem(20) 0;
   position: relative;
   text-align: center;
+  width: 100%;
   z-index: 1;
 
-  @include global.mq("phablet") {
-    // padding-left: map_get(global.$component-padding-x, "mobile");
-    // padding-right: map_get(global.$component-padding-x, "mobile");
+  .image {
+    max-width: global.rem(288);
   }
-
-  :global(body.is-touch) & {
-    opacity: 1 !important;
-  }
-
-  // .title:not(:first-of-type) {
-  //   & > *:not(:first-child) {
-  //     margin-top: global.rem(-16);
-  //   }
-  // }
-}
-
-.scroll {
-  &.visible {
-    opacity: 1;
-  }
-}
-
-.cover {
-  display: none;
-  background: global.$color-grey-10;
-  // clip-path: circle(20% at 50% 50%);
-  left: 0;
-  position: absolute;
-  top: 0;
-  transition: 0.9s global.$easing;
-  @include global.size(100%);
-
-  .cover_image {
-    // background: var(--backgroundHero);
-    //background-size: var(--backgroundSizeHero);
-    // transform: scale(0.9);
-    transition: 1s global.$easing;
-    @include global.size(100%);
-  }
-
-  &:hover {
-    clip-path: circle(100% at 50% 50%);
-    // transform: skew(0deg, 0);
-
-    .cover_image {
-      transform: scale(1);
-    }
-  }
-}
-
-.background {
-  background-position: center center;
-  background-size: cover;
-  display: block;
-  position: absolute;
-  @include global.size(100%);
 }

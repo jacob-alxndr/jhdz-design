@@ -1,27 +1,42 @@
+import ExternalButtonFields from "operations/imports/buttons/external";
 import BackgroundImageFields from "../../imports/backgroundMedia/image";
-
+import ImageFields from "operations/imports/media/image";
+import InternalButtonFields from "operations/imports/buttons/internal";
+import AnchorButtonFields from "operations/imports/buttons/anchor";
 const HeroFields = `
 fragment HeroFields on HeroRecord {
-    eyebrow
+    id
+    _modelApiKey
     title
-  
+    subtitle
     description {
         blocks
         links
         value
       }
-    id
-    titleSize
-    _modelApiKey
-    id
-    titleSize
-    _modelApiKey
-    backgroundColor{hex}
-    backgroundMedia {
-        ... on BackgroundImageRecord {
-            ${BackgroundImageFields}
+      image {
+          ... on ImageRecord {
+              ${ImageFields}
+            }
         }
-    }
+        buttons{
+        ... on ExternalButtonRecord{
+            ${ExternalButtonFields}
+        }
+        ... on InternalButtonRecord{
+            ${InternalButtonFields}
+        }
+        ... on AnchorButtonRecord{
+            ${AnchorButtonFields}
+        }
+        }
+        titleSize
+        subtitleSize
+        verticalPaddingTop
+        verticalPaddingBottom
+        verticalPaddingTopMobile
+        verticalPaddingBottomMobile
+ 
 
 }  
 `;

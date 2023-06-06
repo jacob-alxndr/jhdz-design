@@ -1,4 +1,4 @@
-import buttonsMapping from "@components/Button/mapping";
+import buttonsMapping from "@components/UtilityComponents/Button/mapping";
 
 const getColumn = (title, description, links) => {
   return {

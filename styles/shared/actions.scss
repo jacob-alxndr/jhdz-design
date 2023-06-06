@@ -6,32 +6,58 @@
 @use "./extends";
 
 %base {
-  @include mixins.fontSize(10, 12);
-  @include typography.font-secondaryN3;
+  @include mixins.fontSize(24, 30);
+
   cursor: pointer;
-  // border-radius: map_get(variables.$border-radius, 'sm');
   display: inline-flex;
   transition: 0.5s variables.$easing;
   white-space: nowrap;
-  padding: mixins.rem(8) mixins.rem(12);
-  text-transform: uppercase;
 }
 
 // Primary
 .c-button--primary {
   @extend %base;
+  @include typography.font-headingN6;
   border: 1px solid transparent;
-  color: colors.$color-grey-50;
-}
-
-// Secondary
-.c-button--secondary {
-  @extend %base;
-  color: colors.$color-grey-60;
-
+  text-transform: uppercase;
   body:not(.is-touch) & {
     &:hover {
       color: colors.$color-black;
+    }
+  }
+}
+// Primary
+.c-button--secondary {
+  @extend %base;
+  @include typography.font-primaryN5;
+  border: 1px solid transparent;
+  text-decoration: underline;
+  body:not(.is-touch) & {
+    &:hover {
+      color: colors.$color-black;
+    }
+  }
+}
+// Anchor
+.c-button--anchor {
+  @extend %base;
+  align-items: center;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  width: 100%;
+  svg {
+    transition: transform 0.3s ease;
+  }
+  a {
+    @include typography.font-headingN6;
+  }
+  body:not(.is-touch) & {
+    &:hover {
+      color: colors.$color-black;
+
+      svg {
+        transform: translateY(20%);
+      }
     }
   }
 }

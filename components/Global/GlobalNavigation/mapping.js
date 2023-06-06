@@ -1,4 +1,4 @@
-import buttonsMapping from "../../Button/mapping";
+import buttonsMapping from "../../UtilityComponents/Button/mapping";
 
 const mapping = (data) => {
   if (!data) return "";

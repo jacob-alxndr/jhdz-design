@@ -23,41 +23,33 @@ $component-padding-y: (
 );
 
 $typography-size: (
-  "extra-display": 126,
-  "display": 80,
-  "h1": 72,
-  "h2": 48,
-  "h3": 40,
-  "h4": 32,
-  "h5": 24,
-  "h6": 20,
-  "h7": 18,
-  "h8": 16,
+  "h1": 32,
+  "h2": 24,
+  "h3": 20,
+  "h4": 16,
+  "sh1": 20,
+  "sh2": 20,
+  "sh3": 20,
 );
 
 $typography-line-height: (
-  "extra-display": 132,
-  "display": 76,
-  "h1": 74,
-  "h2": 66,
-  "h3": 56,
-  "h4": 46,
-  "h5": 40,
-  "h6": 30,
-  "h7": 23,
-  "h8": 20,
+  "h1": 40,
+  "h2": 30,
+  "h3": 24,
+  "h4": 20,
+  "sh1": 20,
+  "sh2": 20,
+  "sh3": 20,
 );
 
 $typography-letter-spacing: (
-  "extra-display": 0,
-  "display": -30,
   "h1": 0,
   "h2": 0,
   "h3": 0,
   "h4": 0,
-  "h5": 0,
-  "h6": 0,
-  "h7": 0,
+  "sh1": 0,
+  "sh2": 0,
+  "sh3": 0,
 );
 
 $border-radius: (

@@ -4,7 +4,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import { mobileDetect } from "@utils/mobileDetect";
 import GlobalNavigation from "@components/Global/GlobalNavigation";
 import GlobalFooter from "@components/Global/GlobalFooter";
-import { workSans, workSansMono } from "@lib/fonts";
+import { workSans } from "@lib/fonts";
 import { useStore } from "@lib/store";
 import { useFrame } from "@studio-freight/hamo";
 import Lenis from "@studio-freight/lenis";
@@ -15,30 +15,30 @@ export default function App({ Component, pageProps }) {
   const setIsTouch = useStore((state) => state.setIsTouch);
   const [lenis, setLenis] = useStore((state) => [state.lenis, state.setLenis]);
 
-  useLayoutEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.8,
-      easing: (t) => Math.min(1.1, 1.0001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 4,
-      infinite: false,
-    });
+  // useLayoutEffect(() => {
+  //   const lenis = new Lenis({
+  //     duration: 1.8,
+  //     easing: (t) => Math.min(1.1, 1.0001 - Math.pow(2, -10 * t)),
+  //     orientation: "vertical",
+  //     gestureOrientation: "vertical",
+  //     smoothWheel: true,
+  //     wheelMultiplier: 1,
+  //     smoothTouch: false,
+  //     touchMultiplier: 4,
+  //     infinite: false,
+  //   });
 
-    window.lenis = lenis;
-    setLenis(lenis);
-    // lenis.on("scroll", (e) => {
-    //   console.log(e.targetScroll);
-    // });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   window.lenis = lenis;
+  //   setLenis(lenis);
+  //   // lenis.on("scroll", (e) => {
+  //   //   console.log(e.targetScroll);
+  //   // });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
-  useFrame((time) => {
-    lenis?.raf(time);
-  }, []);
+  // useFrame((time) => {
+  //   lenis?.raf(time);
+  // }, []);
   useEffect(() => {
     if (isTouch) {
       document.body.classList.add("is-touch");
@@ -72,8 +72,6 @@ export default function App({ Component, pageProps }) {
         <style>{`
           :root {
             --font-primary: ${workSans.style.fontFamily};
-            --font-secondary: ${workSansMono.style.fontFamily};
-
           }
         `}</style>
       </Head>

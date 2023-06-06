@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import classNames from "classnames";
 import ButtonExternalLink from "./button-external-link";
 import ButtonInternalLink from "./button-internal-link";
+import { IconArrowDown } from "../Icons";
 // import PropTypes from 'prop-types';
 // import gsap from 'gsap';
 // eslint-disable-next-line import/no-cycle
@@ -54,8 +55,8 @@ const Button = ({
       case "tertiary":
         buttonStyleClass = "c-button--tertiary";
         break;
-      case "contained-white":
-        buttonStyleClass = "c-button--contained-white";
+      case "anchor":
+        buttonStyleClass = "c-button--anchor";
         break;
       case "default":
       default:
@@ -174,6 +175,36 @@ const Button = ({
           {...(onMouseMove && { handleMouseMove: handleMouseMove })}
         />
       );
+    case "anchor_button":
+      return (
+        <div className={setClasses()}>
+          <IconArrowDown />
+          <a
+            {...(id && { id: id })}
+            ref={el}
+            // onClick={handleOnClick}
+            href={data?.buttonUrl}
+            {...(!clean && { "data-animation": "button" })}
+            {...attr}
+            {...(onMouseEnter && {
+              onMouseEnter: handleMouseEnter,
+            })}
+            {...(onMouseMove && { onMouseMove: handleMouseMove })}
+            {...(onMouseLeave && { onMouseLeave: handleMouseLeave })}
+            tabIndex={tabIndex || 0}
+            aria-label={data?.aria?.label || data.buttonText}
+            role={role || "button"} // Needed for screen readers
+            {...(data?.aria?.selected && {
+              "aria-selected": data?.aria?.selected,
+            })}
+            {...(data?.aria?.controls && {
+              "aria-controls": data?.aria?.controls,
+            })}
+          >
+            {getBtnContent()}
+          </a>
+        </div>
+      );
     case "no-action":
       return (
         <button
@@ -181,6 +212,7 @@ const Button = ({
           ref={el}
           className={setClasses()}
           onClick={handleOnClick}
+          href={data?.buttonUrl}
           {...(!clean && { "data-animation": "button" })}
           {...attr}
           {...(onMouseEnter && {

@@ -1,7 +1,6 @@
 @use "./shared/global";
 
 :root {
-  --clip: 0;
 }
 
 html,
@@ -12,6 +11,7 @@ body {
   overflow-x: hidden;
   overscroll-behavior: none;
   padding: 0;
+  scroll-behavior: smooth;
   @include global.fontSize(16, 24);
   @include global.font-primaryN4;
 }
@@ -60,33 +60,6 @@ ul {
   }
 }
 
-.transition-container {
-  z-index: global.$zIndex-7--transition;
-
-  &.is-loading {
-    background: global.$color-primary-400;
-  }
-}
-
-.transition-container,
-.webgl {
-  position: fixed;
-  top: 0;
-  left: 0;
-  outline: none;
-  @include global.size(100%);
-
-  pointer-events: none;
-
-  &.experience {
-    pointer-events: all;
-  }
-
-  &.transition {
-    z-index: global.$zIndex-7--transition;
-  }
-}
-
 // SVG Icons
 .icon {
   display: inline-block;
@@ -107,48 +80,40 @@ h6 {
   @extend %u-heading;
   margin: 0;
 }
-
-.u-heading--extra-display {
-  @extend %u-heading-extra-display;
-  @include global.fontSize(
-    map_get(global.$typography-size, "extra-display"),
-    map_get(global.$typography-line-height, "extra-display"),
-    map_get(global.$typography-letter-spacing, "extra-display")
-  );
-}
-
-.u-heading--display {
-  @extend %u-heading-display;
-}
-
 .u-heading--h1,
 h1 {
   @extend %u-heading-h1;
+  @extend %u-heading;
 }
 
 .u-heading--h2,
 h2 {
   @extend %u-heading-h2;
+  @extend %u-heading;
 }
 
 .u-heading--h3,
 h3 {
+  @extend %u-heading;
   @extend %u-heading-h3;
 }
 
 .u-heading--h4,
 h4 {
+  @extend %u-heading;
   @extend %u-heading-h4;
 }
-
-.u-heading--h5,
+.u-subheading--sh1,
 h5 {
-  @extend %u-heading-h5;
+  @extend %u-subheading-sh1;
 }
-
-.u-heading--h6,
+.u-subheading--sh2,
 h6 {
-  @extend %u-heading-h6;
+  @extend %u-subheading-sh2;
+}
+.u-subheading--sh3,
+h7 {
+  @extend %u-subheading-sh3;
 }
 
 // Text Heading Content Width Sizes
@@ -166,4 +131,9 @@ h6 {
 }
 .u-heading-width--extra-extra-large {
   @extend %u-heading-width-xxl;
+}
+
+// Icons
+.icon-arrow-down {
+  @include global.fontSize(24, 24);
 }
