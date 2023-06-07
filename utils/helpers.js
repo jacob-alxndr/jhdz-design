@@ -46,28 +46,24 @@ export const setViewportHeightUnit = () => {
   // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
   const vh = window.innerHeight * 0.01;
   // Then we set the value in the --vh custom property to the root of the document
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 };
 
-export const isRetinaDevice = () =>
-  typeof window !== 'undefined' && window.devicePixelRatio > 1;
+export const isRetinaDevice = () => typeof window !== "undefined" && window.devicePixelRatio > 1;
 
 export const truncate = (configuration) => {
-  const { target: str, max, suffix = '...' } = configuration;
+  const { target: str, max, suffix = "..." } = configuration;
 
   return str?.length < max
     ? str
-    : `${str?.substr(
-        0,
-        str?.substr(0, max - suffix.length).lastIndexOf(' ')
-      )}${suffix}`;
+    : `${str?.substr(0, str?.substr(0, max - suffix.length).lastIndexOf(" "))}${suffix}`;
 };
 
 export const formatLocale = (locale) => {
   // Fallback to default locale in datocms
-  if (!locale) return 'en';
+  if (!locale) return "en";
 
-  return `${locale?.split('-')?.[0]}_${locale?.split('-')?.[1]}`;
+  return `${locale?.split("-")?.[0]}_${locale?.split("-")?.[1]}`;
 };
 
 /**
@@ -80,10 +76,10 @@ const wrapLines = (elems, wrapType, wrapClass) => {
   elems.forEach((char, i) => {
     // add a wrap for every char (overflow hidden)
     const wrapEl = document.createElement(wrapType);
-    wrapEl.classList.add(wrapClass, 'js-wrap');
-    wrapEl.setAttribute('aria-hidden', true);
+    wrapEl.classList.add(wrapClass, "js-wrap");
+    wrapEl.setAttribute("aria-hidden", true);
     char.parentNode.appendChild(wrapEl);
-    wrapEl.style.setProperty('--i', i);
+    wrapEl.style.setProperty("--i", i);
     wrapEl.appendChild(char);
   });
 };
@@ -93,7 +89,7 @@ export default wrapLines;
 export const pollDebug = (callback) => {
   // Poll global object
   const windowChecker = setInterval(() => {
-    console.log('polling for window.DEBUG.UI...');
+    console.log("polling for window.DEBUG.UI...");
     const debug = window?.DEBUG?.ui;
 
     if (debug) {
@@ -129,4 +125,21 @@ export const pollForElement = (target, callback) => {
       callback(targetEls);
     }
   }, 100);
+};
+
+export const getComponentPadding = (data) => {
+  const {
+    verticalPaddingTop,
+    verticalPaddingBottom,
+    verticalPaddingTopMobile,
+    verticalPaddingBottomMobile,
+  } = data;
+  const componentPadding = [
+    verticalPaddingTop && `u-vertical-padding--top-${verticalPaddingTop}`,
+    verticalPaddingBottom && `u-vertical-padding--bottom-${verticalPaddingBottom}`,
+    verticalPaddingTopMobile && `u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`,
+    verticalPaddingBottomMobile && `u-vertical-padding--bottom-${verticalPaddingBottomMobile}-mobile`,
+  ];
+
+  return componentPadding;
 };

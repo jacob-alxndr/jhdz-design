@@ -19,10 +19,7 @@ const Hero = (props) => {
     buttons,
     titleSize,
     subtitleSize,
-    verticalPaddingTop,
-    verticalPaddingBottom,
-    verticalPaddingTopMobile,
-    verticalPaddingBottomMobile,
+    componentPadding,
   } = data;
   // useEffect(() => {
   //   if (lenis) {
@@ -37,10 +34,7 @@ const Hero = (props) => {
       className={classNames(
         styles.container,
         "padding-x-sm",
-        `u-vertical-padding--top-${verticalPaddingTop}`,
-        `u-vertical-padding--bottom-${verticalPaddingBottom}`,
-        `u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`,
-        `u-vertical-padding--bottom-${verticalPaddingBottomMobile}-mobile`
+        ...(componentPadding && componentPadding)
       )}
     >
       <div className={classNames(styles.content, styles.heading)}>

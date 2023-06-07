@@ -1,42 +1,29 @@
-import Image from "next/image";
+import { Image } from "react-datocms";
 import Link from "next/link";
 import styles from "@styles/CardPreview/index.module.scss";
 import classNames from "classnames";
 import { renderButtons } from "@components/UtilityComponents/Button/utils";
 export default function CardPreview({ data }) {
-  console.log("CardPreview", data);
   return (
     <div>
-      <div
-      // Link
-      // URL Object
-      // href={{
-      //   pathname: "/project/[slug]",
-      //   query: { slug: data?.slug },
-      // }}
-      // or
-      // URL Path
-      // href={`/project/${data?.slug}`}
+      <Link
+        // Link
+        // URL Object
+        // href={{
+        //   pathname: "/project/[slug]",
+        //   query: { slug: data?.slug },
+        // }}
+        // or
+        // URL Path
+        href={`/project/${data?.slug}`}
       >
         <div className={styles.card}>
-          <div className={styles.media}>
-            {data?.backgroundMedia?.map((img, i) => (
-              <Image
-                key={img?.id}
-                src={img?.backgroundImage?.url}
-                width={800}
-                height={260}
-                alt={data?.title}
-              />
-            ))}
-          </div>
-
           <div className={styles.content}>
-            {data?.eyebrow && (
-              <span className={styles.eyebrow}>{data?.eyebrow}</span>
-            )}
-            <h3 className={styles.title}>{data?.title}</h3>
-            <span className={styles.subtitle}>{data?.subtitle}</span>
+            <div className={styles.heading}>
+              <h3 className={classNames(styles.title, "u-heading--h2")}>{data?.title}</h3>
+              <span className={classNames(styles.subtitle, "u-heading--sh2")}>{data?.subtitle}</span>
+            </div>
+
             <div className={styles.description}>
               {data?.description}
               {/* <Markdown>{content}</Markdown> */}
@@ -48,8 +35,20 @@ export default function CardPreview({ data }) {
             )}
             {/* {renderButtons(buttons, styles["card-actions"])} */}
           </div>
+          <div className={styles.media}>
+            {data?.backgroundMedia?.map((img, i) => (
+              <Image
+                key={img?.id}
+                fadeInDuration={2000}
+                lazyLoad={true}
+                priority={true}
+                data={img?.backgroundImage?.responsiveImage}
+                alt={img?.alt}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

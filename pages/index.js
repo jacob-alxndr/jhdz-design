@@ -5,7 +5,7 @@ import classNames from "classnames";
 import CardList from "@components/CardList";
 import Layout from "core/Layout";
 import dynamic from "next/dynamic";
-
+import { motion as m } from "framer-motion";
 const components = {
   global_navigation: {
     comp: dynamic(() => import("@components/Global/GlobalNavigation")),
@@ -15,10 +15,10 @@ const components = {
     comp: dynamic(() => import("@components/Hero")),
     mapping: require(`@components/Hero/mapping`),
   },
-  // card_list: {
-  //   comp: dynamic(() => import("@components/CardList")),
-  //   mapping: require(`@components/CardList/mapping`),
-  // },
+  card_list: {
+    comp: dynamic(() => import("@components/CardList")),
+    mapping: require(`@components/CardList/mapping`),
+  },
   // global_footer: {
   //   comp: dynamic(() => import('../components/Global/GlobalFooter')),
   //   mapping: require('../components/Global/GlobalFooter/mapping'),
@@ -34,18 +34,17 @@ export default function Home({ data }) {
   } = data;
 
   return (
-    <div>
+    <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }}>
       <Layout
         components={components}
         navigationData={globalNavigation}
         globalFooterData={globalFooter}
         data={[hero, ...bodyComponents]}
       />
-    </div>
+    </m.div>
   );
 }
 export async function getStaticProps(context) {
-  console.log("context.preview", context.preview);
   const data = await request({
     query: GET_HOME,
     variables: { limit: 10 },

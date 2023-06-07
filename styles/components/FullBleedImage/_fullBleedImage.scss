@@ -1,0 +1,12 @@
+@use "/styles/shared/global";
+
+.container {
+  position: relative;
+}
+
+.image__wrapper {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}

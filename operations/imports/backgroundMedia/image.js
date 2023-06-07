@@ -9,7 +9,17 @@ backgroundImage {
     width
     height
     responsiveImage(imgixParams: {fit: max, auto: format}) {
+        alt
+        width
+        webpSrcSet
+        title
+        srcSet
         src
+        sizes
+        height
+        bgColor
+        base64
+        aspectRatio
     }
 }
 mobileBackgroundImage {
@@ -17,7 +27,17 @@ mobileBackgroundImage {
     width
     height
     responsiveImage(imgixParams: {fit: max, auto: format}) {
+        alt
+        width
+        webpSrcSet
+        title
+        srcSet
         src
+        sizes
+        height
+        bgColor
+        base64
+        aspectRatio
     }
 }
 `;

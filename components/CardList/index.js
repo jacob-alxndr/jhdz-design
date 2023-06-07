@@ -3,46 +3,20 @@ import styles from "../../styles/components/CardList/index.module.scss";
 import CardPreview from "@components/CardPreview";
 
 export default function CardList(props) {
-  const {
-    eyebrow,
-    title,
-    cards,
-    titleSize,
-    verticalPaddingTop,
-    verticalPaddingBottom,
-    verticalPaddingTopMobile,
-    verticalPaddingBottomMobile,
-    classes,
-  } = props;
-  console.log("CardList", props);
+  const { eyebrow, title, cards, titleSize, componentPadding, classes, id } = props;
   return (
     <div
+      id={id}
       className={classNames(
         styles.container,
-        // styles[`${variant}`],
-        // styles[`align--${alignment}`],
-        // "padding-x-sm",
-        "padding-x-lg",
-        `u-vertical-padding--top-${verticalPaddingTop}`,
-        `u-vertical-padding--bottom-${verticalPaddingBottom}`,
-        {
-          [`u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`]:
-            verticalPaddingTopMobile,
-        },
-        {
-          [`u-vertical-padding--bottom-${verticalPaddingBottomMobile}-mobile`]:
-            verticalPaddingBottomMobile,
-        },
+        "padding-x-sm",
+        ...(componentPadding && componentPadding),
         classes
       )}
     >
       <div className={styles.heading}>
         {eyebrow && <span>{eyebrow}</span>}
-        {title && (
-          <div className={classNames(styles.title, `u-heading--${titleSize}`)}>
-            {title}
-          </div>
-        )}
+        {title && <div className={classNames(styles.title, `u-heading--${titleSize}`)}>{title}</div>}
       </div>
 
       {cards && (

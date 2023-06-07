@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 /**
  * This component can be used as a reminder to provide a proper implementation.
@@ -9,21 +9,21 @@ import * as React from 'react';
 export const TODOComponent = process.env.NEXT_PUBLIC__PRODUCTION__
   ? () => null
   : ({ _modelApiKey }) => {
-      const modelApiKey = _modelApiKey || '';
+      const modelApiKey = _modelApiKey || "";
       React.useEffect(() => {
         console.warn(
           `[ComponentLoader] Could not find a component for modelApiKey "${modelApiKey}"`
         );
       }, [modelApiKey]);
       return React.createElement(
-        'section',
+        "section",
         {
-          'data-componet-loader-todo-component': '',
-          'data-model-api-key': modelApiKey,
+          "data-componet-loader-todo-component": "",
+          "data-model-api-key": modelApiKey,
         },
-        'Could not find a component for ModelApiKey \u201C',
+        "Could not find a component for ModelApiKey \u201C",
         modelApiKey,
-        '\u201D'
+        "\u201D"
       );
     };
 
@@ -50,7 +50,7 @@ export const ComponentLoader = ({
   const renderedModels = React.useMemo(
     () =>
       models.map((model, index) => {
-        const modelApiKey = model?._modelApiKey || '';
+        const modelApiKey = model?._modelApiKey || "";
         const Comp = components[modelApiKey]?.comp || defaultComponent;
         const mapping = components[modelApiKey]?.mapping || null;
         const key = `${index}-${JSON.stringify(model)}`;

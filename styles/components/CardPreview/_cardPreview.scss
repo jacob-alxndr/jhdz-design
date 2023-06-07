@@ -1,48 +1,53 @@
 @use "/styles/shared/global";
 
 .card {
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
-  // background-color: global.$color-grey-10;
   overflow: hidden;
   transition: transform 0.3s global.$easing, opacity 0.2s global.$easing;
+  padding-top: global.rem(32);
+  border-top: 1px solid global.$color-black;
 
-  body:not(.is-touch) & {
-    &:hover {
-      transform: translateY(-10px);
-      img {
-        opacity: 1;
-        transform: scale(1.02);
-      }
-      :global(.c-button--primary) {
-        // background-color: global.$color-black;
-        border: 1px solid global.$color-black;
-        color: global.$color-black;
-      }
-    }
-
-    .content {
-      padding: 1rem 2rem 2rem;
-      .title {
-        @include global.font-primaryN4;
-        @include global.fontSize(18, 24);
-      }
+  .content {
+    padding: 2rem 0 1rem;
+    display: flex;
+    .heading {
+      flex: 1;
       .subtitle {
-        @extend %body--tiny;
+        color: global.$color-grey;
         display: block;
         margin-bottom: global.rem(16);
       }
     }
-    .media {
-      position: relative;
+    .description {
+      flex: 0.8;
+      @extend %body--medium;
+    }
+  }
+  .media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 2px;
+    border-radius: global.rem(24);
+    img {
+      border-radius: global.rem(24);
+      object-fit: cover;
       width: 100%;
-      // height: 4rem;
-      overflow: hidden;
-      padding: 2px;
+      transition: transform 0.3s global.$easing;
+      opacity: 0.9;
+    }
+    div img {
+      transition: transform 0.5s ease !important;
+    }
+    div picture img {
+      transition: transform 0.5s global.$easing !important ;
+    }
+  }
+
+  body:not(.is-touch) & {
+    &:hover {
       img {
-        object-fit: cover;
-        width: 100%;
-        transition: transform 0.3s global.$easing;
-        opacity: 0.9;
+        opacity: 1;
+        transform: scale(1.02);
       }
     }
   }
