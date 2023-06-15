@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import styles from "@styles/DescriptionList/index.module.scss";
 import Markdown from "@components/UtilityComponents/Markdown";
 
@@ -17,7 +17,6 @@ const DescriptionList = ({ props }) => {
         return (
           <div className={styles.column} key={i}>
             {col.map((item, index) => {
-              console.log("item", item, isColumns);
               return (
                 <div key={index} className={styles["list-item"]}>
                   {item?.title && <dt>{item?.title}</dt>}
@@ -37,10 +36,10 @@ const DescriptionList = ({ props }) => {
   };
 
   return (
-    <div className={classNames(styles.container, classes)}>
+    <div className={clsx(styles.container, classes)}>
       {title && <span className={"u-heading--h2"}>{title}</span>}
       <dl
-        className={classNames(styles.list, {
+        className={clsx(styles.list, {
           [styles.columns]: items.length > 4,
         })}
       >

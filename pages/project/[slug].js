@@ -15,6 +15,14 @@ const components = {
     comp: dynamic(() => import("@components/FullBleedImage")),
     mapping: require(`@components/FullBleedImage/mapping`),
   },
+  promo: {
+    comp: dynamic(() => import("@components/Promo")),
+    mapping: require(`@components/Promo/mapping`),
+  },
+  media_promo: {
+    comp: dynamic(() => import("@components/MediaPromo")),
+    mapping: require(`@components/MediaPromo/mapping`),
+  },
 };
 
 export default function LandingPage({ data }) {

@@ -1,7 +1,7 @@
 import { Image } from "react-datocms";
 import Link from "next/link";
 import styles from "@styles/CardPreview/index.module.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { renderButtons } from "@components/UtilityComponents/Button/utils";
 export default function CardPreview({ data }) {
   return (
@@ -20,8 +20,8 @@ export default function CardPreview({ data }) {
         <div className={styles.card}>
           <div className={styles.content}>
             <div className={styles.heading}>
-              <h3 className={classNames(styles.title, "u-heading--h2")}>{data?.title}</h3>
-              <span className={classNames(styles.subtitle, "u-heading--sh2")}>{data?.subtitle}</span>
+              <h3 className={clsx(styles.title, "u-heading--h2")}>{data?.title}</h3>
+              <span className={clsx(styles.subtitle, "u-heading--sh2")}>{data?.subtitle}</span>
             </div>
 
             <div className={styles.description}>
@@ -29,7 +29,7 @@ export default function CardPreview({ data }) {
               {/* <Markdown>{content}</Markdown> */}
             </div>
             {data?.buttons && (
-              <div className={classNames(styles.buttons, "js-sub-content")}>
+              <div className={clsx(styles.buttons, "js-sub-content")}>
                 {renderButtons(data?.buttons)}
               </div>
             )}

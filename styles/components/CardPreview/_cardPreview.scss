@@ -21,24 +21,26 @@
       flex: 0.8;
       @extend %body--medium;
     }
+    @include global.mq("tablet-wide") {
+      flex-direction: column;
+    }
   }
-  .media {
+  .media div {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    border-radius: 16px;
     padding: 2px;
-    border-radius: global.rem(24);
+    overflow: hidden;
     img {
-      border-radius: global.rem(24);
       object-fit: cover;
       width: 100%;
       transition: transform 0.3s global.$easing;
       opacity: 0.9;
     }
-    div img {
+    img {
       transition: transform 0.5s ease !important;
     }
-    div picture img {
+    picture img {
       transition: transform 0.5s global.$easing !important ;
     }
   }
@@ -46,7 +48,6 @@
   body:not(.is-touch) & {
     &:hover {
       img {
-        opacity: 1;
         transform: scale(1.02);
       }
     }

@@ -48,9 +48,6 @@
   }
 }
 
-.heading {
-  align-items: baseline;
-}
 .content {
   display: flex;
   flex-direction: row;
@@ -58,11 +55,18 @@
   justify-content: space-between;
   padding: global.rem(20) 0;
   position: relative;
-  text-align: center;
   width: 100%;
   z-index: 1;
-
   .image {
     max-width: global.rem(288);
   }
+  @include global.mq("tablet-wide") {
+    flex-direction: column;
+    row-gap: global.rem(16);
+  }
+}
+
+.heading {
+  align-items: baseline;
+  column-gap: global.rem(16);
 }

@@ -1,13 +1,12 @@
-import classNames from "classnames";
 import styles from "../../styles/components/CardList/index.module.scss";
 import CardPreview from "@components/CardPreview";
-
+import clsx from "clsx";
 export default function CardList(props) {
-  const { eyebrow, title, cards, titleSize, componentPadding, classes, id } = props;
+  const { anchorId, eyebrow, title, cards, titleSize, componentPadding, classes, id } = props;
   return (
     <div
-      id={id}
-      className={classNames(
+      id={anchorId}
+      className={clsx(
         styles.container,
         "padding-x-sm",
         ...(componentPadding && componentPadding),
@@ -16,7 +15,7 @@ export default function CardList(props) {
     >
       <div className={styles.heading}>
         {eyebrow && <span>{eyebrow}</span>}
-        {title && <div className={classNames(styles.title, `u-heading--${titleSize}`)}>{title}</div>}
+        {title && <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>}
       </div>
 
       {cards && (

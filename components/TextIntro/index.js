@@ -1,36 +1,18 @@
 import React, { useState } from "react";
 import styles from "@styles/TextIntro/index.module.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { StructuredText } from "react-datocms";
 import DescriptionList from "@components/UtilityComponents/DescriptionList";
 
 const TextIntro = (props) => {
   const [data, setData] = useState(props || null);
-  const {
-    title,
-    subtitle,
-    description,
-    roles,
-    titleSize,
-    subtitleSize,
-    componentPadding,
-  } = data;
+  const { title, subtitle, description, roles, titleSize, subtitleSize, componentPadding } = data;
 
   return (
-    <div
-      className={classNames(
-        styles.container,
-        "padding-x-sm",
-        ...(componentPadding && componentPadding)
-      )}
-    >
-      <div className={classNames(styles.heading)}>
-        <div className={classNames(styles.title, `u-heading--${titleSize}`)}>
-          {title}
-        </div>
-        <div className={classNames(`u-subheading--${subtitleSize}`)}>
-          {subtitle}
-        </div>
+    <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>
+      <div className={clsx(styles.heading)}>
+        <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>
+        <div className={clsx(`u-subheading--${subtitleSize}`)}>{subtitle}</div>
       </div>
       <div className={styles.content}>
         <div className={styles.description}>

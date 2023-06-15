@@ -1,44 +1,24 @@
-import Buttons from '../../imports/buttons';
+import Buttons from "../../imports/buttons";
 // import ImageFields from '../../imports/media/image';
-import DescriptionListFields from '../../imports/descriptionList';
+import DescriptionListFields from "../../imports/descriptionList";
 
 const PromoFields = `
 fragment PromoFields on PromoRecord {
     _modelApiKey
+    title
+    titleSize
     alignment
     textBlockWidth
-    titleItalic
-    titleBold
-    titleSize
-    variant
-    backgroundcolor
     verticalPaddingBottom
     verticalPaddingTop
     verticalPaddingBottomMobile
     verticalPaddingTopMobile
     content {
-        blocks {
-            ... on DescriptionListRecord {
-                ${DescriptionListFields}
-            }
-        }
-        value
         links
+        value
     }
-    numberedList {
-        items {
-        number
-          title
-          description
-          id
-        }
-        alignment
-        _modelApiKey
-        id
-      }
     ${Buttons}
 
-    
 }  
 `;
 

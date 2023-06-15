@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "@styles/GlobalFooter/index.module.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 const GlobalFooter = (props) => {
   return (
-    <footer className={classNames(styles.container, "padding-x-sm")}>
+    <footer className={clsx(styles.container, "padding-x-sm")}>
       <div className={styles.content}>
-        <div className={classNames(styles.legal, "u-heading--h3")}>
+        <div className={clsx(styles.legal, "u-heading--h3")}>
           &copy; {process.env.NEXT_PUBLIC_SITE_NAME} {new Date().getFullYear()}
         </div>
       </div>

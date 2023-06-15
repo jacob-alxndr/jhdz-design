@@ -1,0 +1,57 @@
+@use "/styles/shared/global";
+
+.container {
+  height: auto;
+  &.flexFlip {
+    .wrapper {
+      flex-direction: row-reverse;
+    }
+  }
+}
+.wrapper {
+  display: flex;
+  column-gap: global.rem(144);
+  align-items: center;
+}
+.textContent {
+  position: relative;
+  width: 100%;
+  &.small {
+    max-width: global.rem(420);
+  }
+  &.medium {
+    max-width: global.rem(620);
+  }
+}
+
+.title {
+  @extend %subheading--large;
+  display: block;
+  margin-bottom: global.rem(12);
+  @include global.mq("phablet") {
+    margin-bottom: global.rem(24);
+  }
+}
+.description {
+  margin: 0;
+  p {
+    @extend %body--medium;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Buttons content
+.buttons {
+  margin-top: global.rem(40);
+}
+
+.align--right {
+  display: flex;
+  justify-content: end;
+}
+.align--center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

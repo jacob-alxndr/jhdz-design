@@ -3,6 +3,7 @@ import CardFields from "../card";
 const CardListFields = `
 fragment CardListFields on CardListRecord {
     _modelApiKey
+    anchorId
     eyebrow
     title
  cards {

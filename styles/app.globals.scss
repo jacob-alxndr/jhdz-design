@@ -17,11 +17,11 @@ body {
 }
 
 ::selection {
-  background: global.$color-primary-400; /* WebKit/Blink Browsers */
+  background: global.$color-black; /* WebKit/Blink Browsers */
   color: global.$color-white; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: global.$color-primary-400; /* Gecko Browsers */
+  background: global.$color-black; /* Gecko Browsers */
   color: global.$color-white; /* Gecko Browsers */
 }
 

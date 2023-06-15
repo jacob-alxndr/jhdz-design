@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../UtilityComponents/Button";
 import styles from "@styles/GlobalNavigation/index.module.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { useStore } from "@lib/store";
 import { IconLogo } from "@components/UtilityComponents/Icons";
 
@@ -11,15 +11,15 @@ const GlobalNavigation = (props) => {
   const navigationData = useStore(({ navigationData }) => navigationData);
 
   return (
-    <header className={classNames(styles.header, classes, "padding-x-sm")}>
-      <nav className={classNames(styles.nav)}>
-        <div className={classNames(styles.navContent)}>
+    <header className={clsx(styles.header, classes, "padding-x-sm")}>
+      <nav className={clsx(styles.nav)}>
+        <div className={clsx(styles.navContent)}>
           <Button
             data={{
               buttonUrl: "/",
               buttonType: "internal",
             }}
-            classes={classNames(styles.iconLogo)}
+            classes={clsx(styles.iconLogo)}
           >
             <IconLogo />
           </Button>

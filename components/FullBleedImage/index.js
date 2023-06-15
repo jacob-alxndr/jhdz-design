@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@styles/FullBleedImage/index.module.scss";
-import { Image } from "react-datocms";
-import classNames from "classnames";
+import { Image, StructuredText } from "react-datocms";
+import clsx from "clsx";
 
 const FullBleedImage = (props) => {
   const {
@@ -11,18 +11,18 @@ const FullBleedImage = (props) => {
     verticalPaddingBottomMobile,
     verticalPaddingTop,
     verticalPaddingTopMobile,
+    caption,
   } = props;
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         styles.container,
         `padding-x-sm`,
         `u-vertical-padding--top-${verticalPaddingTop}`,
         `u-vertical-padding--bottom-${verticalPaddingBottom}`,
         {
-          [`u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`]:
-            verticalPaddingTopMobile,
+          [`u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`]: verticalPaddingTopMobile,
         },
         {
           [`u-vertical-padding--bottom-${verticalPaddingBottomMobile}-mobile`]:
@@ -42,6 +42,9 @@ const FullBleedImage = (props) => {
               />
             </div>
           ))}
+      </div>
+      <div>
+        <StructuredText data={caption} />
       </div>
     </div>
   );

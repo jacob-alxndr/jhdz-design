@@ -7,6 +7,11 @@ fragment FullBleedImageFields on FullBleedImageRecord {
        ${ImageFields}
       } 
     }
+    caption {
+      blocks
+      links
+      value
+    }
     verticalPaddingTop
     verticalPaddingBottom
     verticalPaddingTopMobile

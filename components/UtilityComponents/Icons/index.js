@@ -1,10 +1,10 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export const IconLogo = (props) => {
   return (
     <svg
-      className={classNames("icon", "icon-logo", props?.classes)}
+      className={clsx("icon", "icon-logo", props?.classes)}
       ref={props?.childRef}
       xmlns="http://www.w3.org/2000/svg"
       width="473"
@@ -12,10 +12,7 @@ export const IconLogo = (props) => {
       viewBox="0 0 473 377"
       fill="none"
     >
-      <path
-        d="M378.309 0V94.1439H283.617V187.833H378.309V281.977H473V0H378.309Z"
-        fill="black"
-      />
+      <path d="M378.309 0V94.1439H283.617V187.833H378.309V281.977H473V0H378.309Z" fill="black" />
       <path d="M283.617 0H188.926V94.1439H283.617V0Z" fill="black" />
       <path
         d="M188.926 187.836C188.926 239.683 146.383 281.98 94.2341 281.98C76.8511 281.98 60.8405 277.432 47.1171 269.245L0 351.11C27.9043 367.028 59.9256 376.124 94.6916 376.124C198.989 376.124 283.617 291.985 283.617 187.836H188.926Z"
@@ -28,7 +25,7 @@ export const IconLogo = (props) => {
 export const IconArrowDown = (props) => {
   return (
     <svg
-      className={classNames("icon", "icon-arrow-down", props?.classes)}
+      className={clsx("icon", "icon-arrow-down", props?.classes)}
       ref={props?.childRef}
       xmlns="http://www.w3.org/2000/svg"
       width="85"

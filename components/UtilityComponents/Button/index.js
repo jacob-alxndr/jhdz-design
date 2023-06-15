@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import ButtonExternalLink from "./button-external-link";
 import ButtonInternalLink from "./button-internal-link";
 import { IconArrowDown } from "../Icons";
@@ -66,12 +66,7 @@ const Button = ({
     }
     return clean
       ? classes
-      : classNames(
-          "c-button",
-          classes,
-          `c-button--${data.buttonType}`,
-          buttonStyleClass
-        );
+      : clsx("c-button", classes, `c-button--${data.buttonType}`, buttonStyleClass);
   };
 
   const getBtnContent = () => {
