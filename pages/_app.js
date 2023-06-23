@@ -8,17 +8,19 @@ import { workSans } from "@lib/fonts";
 import { useStore } from "@lib/store";
 import { useFrame } from "@studio-freight/hamo";
 import Lenis from "@studio-freight/lenis";
+import GlobalDrawer from "@components/Global/GlobalDrawer";
 
 export default function App({ Component, pageProps }) {
   // const [isTouch, setIsTouch] = useState(false);
   const isTouch = useStore(({ isTouch }) => isTouch);
   const setIsTouch = useStore((state) => state.setIsTouch);
   const [lenis, setLenis] = useStore((state) => [state.lenis, state.setLenis]);
-
-  // useLayoutEffect(() => {
+  const drawerData = useStore(({ drawerData }) => drawerData);
+  const drawerIsOpen = useStore(({ drawerIsOpen }) => drawerIsOpen);
+  // useEffect(() => {
   //   const lenis = new Lenis({
-  //     duration: 1.8,
-  //     easing: (t) => Math.min(1.1, 1.0001 - Math.pow(2, -10 * t)),
+  //     duration: 1.2,
+  //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   //     orientation: "vertical",
   //     gestureOrientation: "vertical",
   //     smoothWheel: true,
@@ -39,6 +41,7 @@ export default function App({ Component, pageProps }) {
   // useFrame((time) => {
   //   lenis?.raf(time);
   // }, []);
+
   useEffect(() => {
     if (isTouch) {
       document.body.classList.add("is-touch");
@@ -47,6 +50,16 @@ export default function App({ Component, pageProps }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTouch]);
+  useEffect(() => {
+    if (drawerIsOpen) {
+      document.body.classList.add("is-locked");
+      // lenis.stop();
+    } else {
+      document.body.classList.remove("is-locked");
+      // lenis?.start();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [drawerIsOpen]);
 
   useEffect(() => {
     setIsTouch(mobileDetect());
@@ -56,10 +69,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="preconnect" href={`//graphql.datocms.com`}></link>
         <link rel="dns-preconnect" href="https://datocms-assets.com"></link>
         <link rel="dns-prefetch" href="https://datocms-assets.com"></link>
@@ -75,9 +85,10 @@ export default function App({ Component, pageProps }) {
           }
         `}</style>
       </Head>
-      <GlobalNavigation classes="js-site js-site--mobile" />
+      <GlobalNavigation />
+      <GlobalDrawer {...drawerData} />
       <Component {...pageProps} />
-      <GlobalFooter classes="js-site js-site--mobile" />
+      <GlobalFooter />
     </>
   );
 }

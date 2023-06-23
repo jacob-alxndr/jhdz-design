@@ -4,7 +4,7 @@ import GET_ALL_LANDING_PAGES from "operations/queries/getAllLandingPages";
 import { request } from "@lib/datocms";
 import { getAllSlugs } from "@lib/data";
 import Layout from "core/Layout";
-import { motion as m } from "framer-motion";
+// import { motion as m } from "framer-motion";
 
 const components = {
   text_intro: {
@@ -34,16 +34,16 @@ export default function LandingPage({ data }) {
     globalNavigation,
     globalFooter,
   } = data;
-  console.log("Landing Data", data);
+
   return (
-    <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }}>
+    <div>
       <Layout
         components={components}
         navigationData={globalNavigation}
         globalFooterData={globalFooter}
         data={[textIntro, ...bodyComponents]}
       />
-    </m.div>
+    </div>
   );
 }
 

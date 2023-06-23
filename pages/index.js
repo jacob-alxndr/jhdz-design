@@ -1,15 +1,16 @@
 import { request } from "../lib/datocms";
-import { useQuerySubscription } from "react-datocms";
 import GET_HOME from "operations/queries/getHome";
-
-import CardList from "@components/CardList";
 import Layout from "core/Layout";
 import dynamic from "next/dynamic";
-import { motion as m } from "framer-motion";
+
 const components = {
   global_navigation: {
     comp: dynamic(() => import("@components/Global/GlobalNavigation")),
     mapping: require("@components/Global/GlobalNavigation/mapping"),
+  },
+  global_drawer: {
+    comp: dynamic(() => import("@components/Global/GlobalDrawer")),
+    mapping: require("@components/Global/GlobalDrawer/mapping"),
   },
   hero: {
     comp: dynamic(() => import("@components/Hero")),
@@ -19,10 +20,10 @@ const components = {
     comp: dynamic(() => import("@components/CardList")),
     mapping: require(`@components/CardList/mapping`),
   },
-  // global_footer: {
-  //   comp: dynamic(() => import('../components/Global/GlobalFooter')),
-  //   mapping: require('../components/Global/GlobalFooter/mapping'),
-  // },
+  global_footer: {
+    comp: dynamic(() => import("../components/Global/GlobalFooter")),
+    mapping: require("../components/Global/GlobalFooter/mapping"),
+  },
 };
 
 export default function Home({ data }) {
@@ -30,18 +31,20 @@ export default function Home({ data }) {
     home: { hero, components: bodyComponents },
     // _site,
     globalNavigation,
+    globalDrawer,
     globalFooter,
   } = data;
 
   return (
-    <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }}>
+    <div>
       <Layout
         components={components}
         navigationData={globalNavigation}
-        globalFooterData={globalFooter}
+        footerData={globalFooter}
+        drawerData={globalDrawer}
         data={[hero, ...bodyComponents]}
       />
-    </m.div>
+    </div>
   );
 }
 export async function getStaticProps(context) {

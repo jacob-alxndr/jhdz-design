@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import clsx from "clsx";
 import ButtonExternalLink from "./button-external-link";
 import ButtonInternalLink from "./button-internal-link";
+import ButtonDrawer from "./button-drawer";
 import { IconArrowDown } from "../Icons";
 // import PropTypes from 'prop-types';
 // import gsap from 'gsap';
@@ -199,6 +200,24 @@ const Button = ({
             {getBtnContent()}
           </a>
         </div>
+      );
+    case "content-drawer":
+      return (
+        <ButtonDrawer
+          ref={el}
+          data={data}
+          getBtnContent={getBtnContent}
+          onClick={onClick}
+          setClasses={setClasses}
+          clean={clean}
+          {...(onMouseEnter && {
+            onMouseEnter: handleMouseEnter,
+          })}
+          {...(onMouseLeave && {
+            onMouseLeave: handleMouseLeave,
+          })}
+          {...(onMouseMove && { onMouseMove: handleMouseMove })}
+        />
       );
     case "no-action":
       return (

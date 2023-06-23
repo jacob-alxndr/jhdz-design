@@ -1,8 +1,6 @@
 @use "/styles/shared/global";
 
 .header {
-  // position: fixed;
-  // top: 0;
   width: 100%;
   z-index: global.$zIndex-4--nav;
 }
@@ -13,8 +11,13 @@
 
   &Content {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     .iconLogo {
       @include global.fontSize(64, 64);
+    }
+    .iconAbout {
+      @include global.fontSize(24, 24);
     }
   }
 }

@@ -59,6 +59,9 @@
   z-index: 1;
   .image {
     max-width: global.rem(288);
+    @include global.mq("tablet-wide") {
+      max-width: 100%;
+    }
   }
   @include global.mq("tablet-wide") {
     flex-direction: column;

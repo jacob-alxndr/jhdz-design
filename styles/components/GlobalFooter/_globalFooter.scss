@@ -14,7 +14,7 @@
 }
 
 .legal {
-  @include global.fontSize(12, 14);
+  // @include global.fontSize(20, 24);
   color: global.$color-white;
   display: block;
 }
