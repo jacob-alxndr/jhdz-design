@@ -10,7 +10,7 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   padding: 0;
-  // scroll-behavior: smooth;
+  scroll-behavior: smooth;
   @include global.fontSize(16, 24);
   @include global.font-primaryN4;
 }

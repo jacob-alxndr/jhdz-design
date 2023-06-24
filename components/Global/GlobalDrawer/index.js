@@ -62,7 +62,7 @@ const GlobalDrawer = (props) => {
       .set(state.current.background, { xPercent: 100 })
       .set(state.current.footer, { opacity: 0 })
       .set(state.current.content, { opacity: 0, y: 20 })
-      .set(state.current.backdrop, { yPercent: -100, opacity: 0 }, 0)
+      .set(state.current.backdrop, { yPercent: -100 }, 0)
       .to(state.current.backdrop, { yPercent: 0, opacity: 1 }, 0)
       .to(el.current, { opacity: 1 }, 0)
       .to(state.current.background, { xPercent: 0 }, 0)
