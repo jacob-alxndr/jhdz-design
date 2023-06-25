@@ -2,17 +2,15 @@
 
 .container {
   position: relative;
-}
-
-.image__wrapper {
-  width: 100%;
-  img {
+  .image__wrapper {
     width: 100%;
+    img {
+      width: 100%;
+    }
   }
-}
-
-.caption {
-  p {
-    @extend %body--small;
+  .caption {
+    p {
+      @extend %body--small;
+    }
   }
 }
