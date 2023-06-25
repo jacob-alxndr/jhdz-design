@@ -52,6 +52,11 @@
 }
 .align--center {
   display: flex;
+
   justify-content: center;
   text-align: center;
+  .wrapper {
+    row-gap: global.rem(48);
+    flex-direction: column;
+  }
 }

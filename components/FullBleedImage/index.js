@@ -43,7 +43,7 @@ const FullBleedImage = (props) => {
             </div>
           ))}
       </div>
-      <div>
+      <div className={styles.caption}>
         <StructuredText data={caption} />
       </div>
     </div>

@@ -10,3 +10,9 @@
     width: 100%;
   }
 }
+
+.caption {
+  p {
+    @extend %body--small;
+  }
+}

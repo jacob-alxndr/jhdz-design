@@ -7,11 +7,10 @@
   align-items: center;
   display: flex;
   justify-content: end;
-  padding: global.rem(32) 0 0;
+  padding: global.rem(12) 0 0;
   position: relative;
   z-index: 2;
-
-  svg {
+  .iconClose {
     @include global.fontSize(20, 30);
     position: relative;
     z-index: 1;
@@ -23,6 +22,28 @@
   position: relative;
   z-index: 1;
   overflow-y: scroll;
+
+  // Text content
+  .body__content__copy {
+    .columns {
+      display: flex;
+      gap: global.rem(48);
+      div {
+        flex: 0.75;
+        p {
+          @extend %body--medium;
+          color: global.$color-white;
+        }
+      }
+      div:not(:last-child) {
+        flex: 1;
+      }
+
+      @include global.mq("desktop") {
+        flex-direction: column;
+      }
+    }
+  }
 }
 
 .drawerFooter {
@@ -34,29 +55,13 @@
   position: absolute;
   width: 100%;
   z-index: 2;
-
   @include global.mq("tablet-wide") {
     position: relative;
   }
-}
-// Text content
-.body__content__copy {
-  .columns {
-    display: flex;
-    gap: global.rem(48);
-    div {
-      flex: 0.75;
-      p {
-        @extend %body--medium;
-        color: global.$color-white;
-      }
-    }
-    div:not(:last-child) {
-      flex: 1;
-    }
-
-    @include global.mq("desktop") {
-      flex-direction: column;
+  .recognition {
+    text-transform: none;
+    a {
+      text-decoration: underline;
     }
   }
 }
