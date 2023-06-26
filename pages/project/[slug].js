@@ -27,19 +27,27 @@ const components = {
     comp: dynamic(() => import("@components/MediaPromo")),
     mapping: require(`@components/MediaPromo/mapping`),
   },
+  landing_page_footer: {
+    comp: dynamic(() => import("@components/LandingPageFooter")),
+    mapping: require(`@components/LandingPageFooter/mapping`),
+  },
 };
 
 export default function LandingPage({ data }) {
   const {
     page: {
-      0: { textIntro, components: bodyComponents },
+      0: {
+        textIntro,
+        components: bodyComponents,
+        landingPageFooter: { 0: landingPageFooter },
+      },
     },
     // _site,
     globalNavigation,
     globalDrawer,
     globalFooter,
   } = data;
-
+  console.log("data", data);
   return (
     <div>
       <Layout
@@ -47,7 +55,7 @@ export default function LandingPage({ data }) {
         navigationData={globalNavigation}
         drawerData={globalDrawer}
         footerData={globalFooter}
-        data={[textIntro, ...bodyComponents]}
+        data={[textIntro, ...bodyComponents, landingPageFooter]}
       />
     </div>
   );

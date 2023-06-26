@@ -7,7 +7,6 @@
 
 %base {
   @include mixins.fontSize(24, 30);
-
   cursor: pointer;
   display: inline-flex;
   transition: 0.5s variables.$easing;

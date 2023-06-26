@@ -3,26 +3,10 @@
 .container {
   height: auto;
 }
+
 .textContent {
   position: relative;
   width: 100%;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: global.rem(24);
-  }
-  p {
-    margin: 0;
-  }
-  .small {
-    max-width: global.rem(420);
-  }
-  .medium {
-    max-width: global.rem(592);
-  }
 }
 
 .columns {
@@ -38,10 +22,13 @@
 }
 
 // Buttons content
-.buttons {
-  margin-top: global.rem(40);
+.buttonsWrapper {
+  .buttons {
+    a {
+      text-decoration: underline;
+    }
+  }
 }
-
 .align--right {
   display: flex;
   justify-content: end;

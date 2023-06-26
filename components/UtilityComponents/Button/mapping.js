@@ -3,7 +3,7 @@ import linkResolver from "../../../lib/routes";
 
 const getMappedDrawer = (buttonChild) => {
   const openInDrawer = buttonChild?.openInDrawer;
-  console.log("buttonChild", buttonChild?.buttonData);
+
   if (!openInDrawer) return null;
   return {
     id: buttonChild?.content,
@@ -41,9 +41,11 @@ const getButtonType = (button) => {
 const getButton = (button) => {
   if (!button) return "";
   let buttonType = getButtonType(button);
+  // console.log("buttonType", buttonType);
   let link = "/";
   if (buttonType === "internal") {
     link = button?.link ? linkResolver(button?.link) : "/";
+    // console.log("link", button?.link);
   }
 
   if (button?.anchorId) {
@@ -60,10 +62,11 @@ const getButton = (button) => {
     nestedButtons = getButtons(button?.buttons);
     buttonType = "category";
   }
-  // console.log("link", button);
+  console.log("link", button);
   // Get nested media
   // const media = !button.openInDrawer && mediaMapping(button?.media?.[0]);
   const getButtonURL = (buttonType) => {
+    // console.log("buttonType", buttonType);
     switch (buttonType) {
       case "internal":
         return link;
@@ -77,6 +80,7 @@ const getButton = (button) => {
     }
   };
   const buttonUrl = getButtonURL(buttonType);
+  // console.log("buttonUrl", buttonUrl);
   return {
     buttonId: button?.id,
     buttonText: button?.label,

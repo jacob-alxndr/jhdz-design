@@ -20,7 +20,6 @@ const Hero = (props) => {
       </div>
       <div className={styles.content}>
         <div className={styles.textContent}>
-          {" "}
           <div className={styles.description}>
             <StructuredText data={description} />
           </div>

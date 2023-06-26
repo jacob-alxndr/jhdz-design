@@ -61,10 +61,13 @@ export default function Layout({
 
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      // variants={container}
+      // initial="hidden"
+      // animate="show"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      exit={{ opacity: 0 }}
+      // exit={{ opacity: 0 }}
     >
       <Head>
         <title>Jaime Isaac Hernández</title>

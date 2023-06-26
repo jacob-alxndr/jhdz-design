@@ -22,16 +22,18 @@ query LandingPageQuery($slug: String) {
             ... on MediaPromoRecord {
                 ...MediaPromoFields
             }
-        
           }
+          landingPageFooter{ ${LandingPageFooterFields}}
     }   
     globalDrawer {${GlobalDrawerFields}} 
-    landingPageFooter{ ${LandingPageFooterFields}}
+    
 }
 ${TextIntroFields}
 ${FullBleedImageFields}
 ${TextPromoFields}
 ${MediaPromoFields}
+
+
 
 
 `;

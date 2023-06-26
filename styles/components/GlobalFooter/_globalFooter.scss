@@ -14,7 +14,9 @@
 }
 
 .legal {
-  // @include global.fontSize(20, 24);
   color: global.$color-white;
   display: block;
+  @include global.mq("phone-wide") {
+    @include global.fontSize(12, 18);
+  }
 }
