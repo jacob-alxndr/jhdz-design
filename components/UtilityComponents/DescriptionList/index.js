@@ -4,7 +4,7 @@ import styles from "@styles/DescriptionList/index.module.scss";
 import Markdown from "@components/UtilityComponents/Markdown";
 
 const DescriptionList = ({ props }) => {
-  const { title, items, classes } = props[0];
+  const { title, items, classes } = props;
 
   const renderList = () => {
     if (!items) return "";

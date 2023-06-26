@@ -6,8 +6,16 @@ import DescriptionList from "@components/UtilityComponents/DescriptionList";
 
 const TextIntro = (props) => {
   const [data, setData] = useState(props || null);
-  const { title, subtitle, description, roles, titleSize, subtitleSize, componentPadding } = data;
-
+  const {
+    title,
+    subtitle,
+    description,
+    roles: lists,
+    titleSize,
+    subtitleSize,
+    componentPadding,
+  } = data;
+  console.log("roles", lists);
   return (
     <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>
       <div className={clsx(styles.heading)}>
@@ -18,9 +26,13 @@ const TextIntro = (props) => {
         <div className={styles.description}>
           <StructuredText data={description} />
         </div>
-        <div>
-          <DescriptionList props={roles} />
-        </div>
+        {lists && (
+          <div className={styles.lists}>
+            {lists?.map((list, key) => (
+              <DescriptionList key={key} props={list} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -9,16 +9,8 @@ import { Image } from "react-datocms";
 import { renderButtons } from "@components/UtilityComponents/Button/utils";
 const Hero = (props) => {
   const [data, setData] = useState(props);
-  const lenis = useStore(({ lenis }) => lenis);
   const { title, subtitle, description, image, buttons, titleSize, subtitleSize, componentPadding } =
     data;
-  // useEffect(() => {
-  //   if (lenis) {
-  //     lenis.on("scroll", (e) => {
-  //       console.log(e.targetScroll);
-  //     });
-  //   }
-  // });
 
   return (
     <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>

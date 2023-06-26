@@ -7,6 +7,10 @@ import Layout from "core/Layout";
 // import { motion as m } from "framer-motion";
 
 const components = {
+  global_drawer: {
+    comp: dynamic(() => import("@components/Global/GlobalDrawer")),
+    mapping: require("@components/Global/GlobalDrawer/mapping"),
+  },
   text_intro: {
     comp: dynamic(() => import("@components/TextIntro")),
     mapping: require(`@components/TextIntro/mapping`),
@@ -15,9 +19,9 @@ const components = {
     comp: dynamic(() => import("@components/FullBleedImage")),
     mapping: require(`@components/FullBleedImage/mapping`),
   },
-  promo: {
-    comp: dynamic(() => import("@components/Promo")),
-    mapping: require(`@components/Promo/mapping`),
+  text_promo: {
+    comp: dynamic(() => import("@components/TextPromo")),
+    mapping: require(`@components/TextPromo/mapping`),
   },
   media_promo: {
     comp: dynamic(() => import("@components/MediaPromo")),
@@ -32,6 +36,7 @@ export default function LandingPage({ data }) {
     },
     // _site,
     globalNavigation,
+    globalDrawer,
     globalFooter,
   } = data;
 
@@ -40,7 +45,8 @@ export default function LandingPage({ data }) {
       <Layout
         components={components}
         navigationData={globalNavigation}
-        globalFooterData={globalFooter}
+        drawerData={globalDrawer}
+        footerData={globalFooter}
         data={[textIntro, ...bodyComponents]}
       />
     </div>
@@ -51,7 +57,6 @@ export async function getStaticPaths() {
   const data = await request({
     query: GET_ALL_LANDING_PAGES,
   });
-  console.log("getStaticPaths", data);
   const paths = getAllSlugs(data?.pages);
   return {
     paths,
@@ -60,7 +65,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log("CONTEXT", GET_LANDING_PAGE);
   const slug = context.params.slug;
   const data = await request({
     query: GET_LANDING_PAGE,
@@ -68,7 +72,7 @@ export async function getStaticProps(context) {
     includeDrafts: context.preview,
     preview: context.preview,
   });
-  console.log("data", data);
+
   return {
     props: { data },
   };

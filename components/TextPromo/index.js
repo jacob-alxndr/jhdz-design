@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import styles from "../../styles/components/Promo/index.module.scss";
+import styles from "../../styles/components/TextPromo/index.module.scss";
 import clsx from "clsx";
 import Default from "./components/default";
 
-const Promo = (props) => {
+const TextPromo = (props) => {
   const { alignment, classes, index, componentPadding } = props;
-  console.log("props alignment", alignment);
 
   return (
     <div
@@ -23,4 +22,4 @@ const Promo = (props) => {
   );
 };
 
-export default Promo;
+export default TextPromo;

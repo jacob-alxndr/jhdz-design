@@ -1,9 +1,10 @@
 import TextIntroFields from "operations/fragments/textIntro";
 import FullBleedImageFields from "operations/fragments/fullBleedImage";
-import PromoFields from "operations/fragments/promo";
+import TextPromoFields from "operations/fragments/textPromo";
 import MediaPromoFields from "operations/fragments/mediaPromo";
 import ImageFields from "operations/imports/media/image";
 import GlobalDrawerFields from "operations/fragments/drawer";
+import LandingPageFooterFields from "operations/fragments/landingPageFooter";
 const GET_LANDING_PAGE = `
 query LandingPageQuery($slug: String) {
     page: allLandingPages( filter: {slug: {eq: $slug}}) {
@@ -15,8 +16,8 @@ query LandingPageQuery($slug: String) {
             ... on FullBleedImageRecord {
                 ...FullBleedImageFields
             }
-            ... on PromoRecord {
-                ...PromoFields
+            ... on TextPromoRecord {
+                ...TextPromoFields
             }
             ... on MediaPromoRecord {
                 ...MediaPromoFields
@@ -25,10 +26,11 @@ query LandingPageQuery($slug: String) {
           }
     }   
     globalDrawer {${GlobalDrawerFields}} 
+    landingPageFooter{ ${LandingPageFooterFields}}
 }
 ${TextIntroFields}
 ${FullBleedImageFields}
-${PromoFields}
+${TextPromoFields}
 ${MediaPromoFields}
 
 

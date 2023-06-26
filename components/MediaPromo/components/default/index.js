@@ -8,13 +8,15 @@ const Default = (props) => {
   console.log("textBlockWidth", textBlockWidth);
   return (
     <div className={styles.wrapper}>
-      <div className={clsx(styles.textContent, styles[textBlockWidth])}>
-        {title && <span className={styles.title}>{title}</span>}
-        {content && (
-          <div className={clsx(styles.description)}>
-            <StructuredText data={content} />
-          </div>
-        )}
+      <div className={styles.textContent}>
+        <div className={clsx(styles.copy, styles[textBlockWidth])}>
+          {title && <span className={styles.title}>{title}</span>}
+          {content && (
+            <div className={clsx(styles.description)}>
+              <StructuredText data={content} />
+            </div>
+          )}
+        </div>
       </div>
 
       {image &&

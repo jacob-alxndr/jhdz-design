@@ -4,14 +4,28 @@
   height: auto;
 }
 
+.noMargin {
+  margin: 0;
+}
 .textContent {
   position: relative;
   width: 100%;
-  &.small {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: global.rem(24);
+  }
+  p {
+    margin: 0;
+  }
+  .small {
     max-width: global.rem(420);
   }
-  &.medium {
-    max-width: global.rem(620);
+  .medium {
+    max-width: global.rem(592);
   }
 }
 
@@ -29,6 +43,18 @@
     @extend %body--medium;
     margin: 0;
     padding: 0;
+  }
+}
+
+.columns {
+  width: 100%;
+  display: flex;
+  gap: global.rem(48);
+  div {
+    flex: 1;
+    p {
+      @extend %body--medium;
+    }
   }
 }
 

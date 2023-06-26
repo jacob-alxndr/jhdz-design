@@ -40,8 +40,8 @@ export default function Home({ data }) {
       <Layout
         components={components}
         navigationData={globalNavigation}
-        footerData={globalFooter}
         drawerData={globalDrawer}
+        footerData={globalFooter}
         data={[hero, ...bodyComponents]}
       />
     </div>
