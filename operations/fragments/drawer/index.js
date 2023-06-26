@@ -8,6 +8,14 @@ const GlobalDrawerFields = `
         links
         blocks
       }
+    }
+    footerContent {
       id
-    }`;
+      structuredText {
+        blocks
+        links
+        value
+      }
+    }
+    `;
 export default GlobalDrawerFields;

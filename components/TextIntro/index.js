@@ -20,7 +20,7 @@ const TextIntro = (props) => {
     <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>
       <div className={clsx(styles.heading)}>
         <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>
-        <div className={clsx(`u-subheading--${subtitleSize}`)}>{subtitle}</div>
+        <div className={clsx(styles.subtitle, `u-subheading--${subtitleSize}`)}>{subtitle}</div>
       </div>
       <div className={styles.content}>
         <div className={styles.description}>

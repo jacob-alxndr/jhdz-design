@@ -55,13 +55,12 @@
   position: absolute;
   width: 100%;
   z-index: 2;
+  > * {
+    color: global.$color-white;
+    @include global.fontSize(20, 24);
+  }
+
   @include global.mq("tablet-wide") {
     position: relative;
-  }
-  .recognition {
-    text-transform: none;
-    a {
-      text-decoration: underline;
-    }
   }
 }

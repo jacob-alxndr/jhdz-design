@@ -12,6 +12,10 @@
   border-bottom: 1px solid global.$color-black;
   padding: global.rem(20) 0;
   width: 100%;
+
+  .subtitle {
+    color: global.$color-grey;
+  }
 }
 .content {
   display: flex;

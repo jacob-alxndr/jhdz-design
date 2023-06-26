@@ -34,7 +34,5 @@ ${TextPromoFields}
 ${MediaPromoFields}
 
 
-
-
 `;
 export default GET_LANDING_PAGE;

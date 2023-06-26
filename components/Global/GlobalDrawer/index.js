@@ -6,13 +6,13 @@ import DrawerBody from "./drawerBody";
 import { gsap } from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 const GlobalDrawer = (props) => {
-  const drawerData = useStore(({ drawerData }) => drawerData);
   const drawerContent = useStore(({ drawerContent }) => drawerContent);
   const setDrawerContent = useStore((state) => state.setDrawerContent);
   const [drawerIsOpen, setDrawerIsOpen] = useStore((state) => [
     state.drawerIsOpen,
     state.setDrawerIsOpen,
   ]);
+
   const el = useRef();
   const drawerRef = useRef();
   const state = useRef({
