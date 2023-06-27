@@ -4,8 +4,6 @@ const CardListFields = `
 fragment CardListFields on CardListRecord {
     _modelApiKey
     anchorId
-    eyebrow
-    title
  cards {
       ${CardFields}
   }

@@ -28,9 +28,15 @@
   .lists {
     display: flex;
     column-gap: global.rem(72);
-    padding-right: global.rem(128);
+    // padding-right: global.rem(128);
+    > * {
+      white-space: nowrap;
+    }
     @include global.mq("tablet-wide") {
       padding-right: 0;
+    }
+    @include global.mq("tablet-wide") {
+      flex-direction: column;
     }
   }
 
