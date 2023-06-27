@@ -14,7 +14,9 @@ body {
   @include global.fontSize(16, 24);
   @include global.font-primaryN4;
 }
-
+.layout {
+  position: relative;
+}
 .is-locked {
   overscroll-behavior: none;
   position: fixed;
