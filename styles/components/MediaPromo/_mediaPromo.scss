@@ -7,6 +7,9 @@
       flex-direction: row-reverse;
       .copy {
         padding: 0 0 0 global.rem(48);
+        @include global.mq("tablet-wide") {
+          padding: 0;
+        }
       }
       @include global.mq("tablet-wide") {
         flex-direction: column-reverse;
@@ -21,6 +24,9 @@
   align-items: center;
   .copy {
     padding: 0 global.rem(48) 0 0;
+    @include global.mq("tablet-wide") {
+      padding: 0;
+    }
   }
   div {
     flex: 1;
@@ -68,6 +74,9 @@
 .align--right {
   display: flex;
   justify-content: end;
+  @include global.mq("tablet-wide") {
+    justify-content: flex-start;
+  }
 }
 .align--center {
   display: flex;

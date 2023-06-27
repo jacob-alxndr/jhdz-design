@@ -15,6 +15,9 @@
     position: relative;
     z-index: 1;
   }
+  @include global.mq("phablet") {
+    @include global.size(100%, global.rem(80));
+  }
 }
 
 .content {
@@ -58,6 +61,9 @@
   > * {
     color: global.$color-white;
     @include global.fontSize(20, 24);
+    @include global.mq("tablet-wide") {
+      @include global.fontSize(10, 22);
+    }
   }
 
   @include global.mq("tablet-wide") {

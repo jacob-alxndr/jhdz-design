@@ -35,6 +35,9 @@
       @extend %body--medium;
     }
   }
+  @include global.mq("tablet") {
+    flex-direction: column;
+  }
 }
 
 // Buttons content
@@ -45,6 +48,9 @@
 .align--right {
   display: flex;
   justify-content: end;
+  @include global.mq("tablet") {
+    justify-content: flex-start;
+  }
 }
 .align--center {
   display: flex;

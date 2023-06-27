@@ -40,7 +40,6 @@ export default function CardPreview({ data }) {
               <Image
                 key={img?.id}
                 fadeInDuration={2000}
-                lazyLoad={true}
                 priority={true}
                 data={img?.backgroundImage?.responsiveImage}
                 alt={img?.alt}

@@ -13,6 +13,9 @@
   width: 100%;
   display: flex;
   gap: global.rem(48);
+  @include global.mq("tablet-wide") {
+    flex-direction: column;
+  }
   div {
     flex: 1;
     p {

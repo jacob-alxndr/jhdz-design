@@ -45,6 +45,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-content: flex-end;
+    @include global.mq("tablet-wide") {
+      flex-direction: column-reverse;
+      row-gap: global.rem(48);
+    }
   }
 }
 
@@ -65,7 +69,7 @@
   }
   @include global.mq("tablet-wide") {
     flex-direction: column;
-    row-gap: global.rem(16);
+    row-gap: global.rem(48);
   }
 }
 

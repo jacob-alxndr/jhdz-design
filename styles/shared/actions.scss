@@ -11,6 +11,10 @@
   display: inline-flex;
   transition: 0.5s variables.$easing;
   white-space: nowrap;
+
+  @include mixins.mq("phablet") {
+    @include mixins.fontSize(20, 22);
+  }
 }
 
 // Primary
@@ -44,6 +48,7 @@
   border: 1px solid transparent;
   text-transform: uppercase;
   width: 100%;
+  column-gap: mixins.rem(8);
   svg {
     transition: transform 0.3s ease;
   }
