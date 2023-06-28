@@ -15,7 +15,7 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
       // return `/project/${item.attributes.slug}`;
       return {
         label: `${item.attributes.title[locale]}`,
-        url: `${localePrefix}/${item.attributes.slug[locale]}`,
+        url: `${localePrefix}/project/${item.attributes.slug[locale]}`,
       };
     default:
       return null;
