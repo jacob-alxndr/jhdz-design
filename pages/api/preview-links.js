@@ -17,7 +17,7 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
       // return `/project/${item.attributes.slug}`;
       return {
         label: `${item.attributes.title[locale]}`,
-        url: `/project/${item.attributes.slug}`,
+        url: `/project/${item.attributes.slug[locale]}`,
         // url: `${localePrefix}/project/${item.attributes.slug[locale]}`,
       };
     default:
@@ -40,18 +40,17 @@ const generateLinks = (req, res, env) => {
     return res.status(200).json({ previewLinks: [] });
   }
 
-  const baseUrl = env;
   const previewLinks = [
     // Public URL:
     {
       label: previewLink.label,
-      url: `${baseUrl}/api/preview-end?redirect=${previewLink.url}`,
+      url: `${env}/api/preview-end?redirect=${previewLink.url}`,
     },
     // This requires an API route on your project that starts Next.js Preview Mode
     // and redirects to the URL provided with the `redirect` parameter:
     {
       label: `${previewLink.label} - Draft`,
-      url: `${baseUrl}/api/preview-start?redirect=${previewLink.url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
+      url: `${env}/api/preview-start?redirect=${previewLink.url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
     },
   ];
   return res.status(200).json({ previewLinks });
