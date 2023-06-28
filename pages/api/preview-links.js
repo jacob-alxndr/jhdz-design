@@ -51,7 +51,7 @@ const generateLinks = (req, res, env) => {
     // and redirects to the URL provided with the `redirect` parameter:
     {
       label: `${previewLink.label} - Draft`,
-      url: `${baseUrl}/api/preview-start?redirect=NOPE&secret=${process.env.PREVIEW_MODE_SECRET}`,
+      url: `${baseUrl}/api/preview-start?redirect=${previewLink.url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
     },
   ];
   return res.status(200).json({ previewLinks });
