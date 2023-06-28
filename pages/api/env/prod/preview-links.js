@@ -21,7 +21,7 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
       return null;
   }
 };
-const generateLinks = (req, res, env) => {
+const handler = (req, res, env) => {
   // setup CORS permissions
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST");
@@ -40,7 +40,7 @@ const generateLinks = (req, res, env) => {
     // Public URL:
     {
       label: previewLink.label,
-      url: `${baseUrl}${previewLink}`,
+      url: `${baseUrl}${previewLink.url}`,
     },
     // This requires an API route on your project that starts Next.js Preview Mode
     // and redirects to the URL provided with the `redirect` parameter:
@@ -51,4 +51,4 @@ const generateLinks = (req, res, env) => {
   ];
   return res.status(200).json({ previewLinks });
 };
-export default generateLinks;
+export default handler;
