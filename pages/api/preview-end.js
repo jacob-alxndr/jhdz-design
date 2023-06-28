@@ -1,4 +1,5 @@
 export default function handler(req, res) {
   res.clearPreviewData({});
-  res.end("Preview mode disabled");
+  res.setHeader("Location", `${req.query.redirect}`);
+  res.end();
 }
