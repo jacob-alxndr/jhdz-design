@@ -9,13 +9,15 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
       // return `/`;
       return {
         label: `${itemType.attributes.name}`,
-        url: `${localePrefix}/`,
+        url: `/`,
+        // url: `${localePrefix}/`,
       };
     case "landing_page":
       // return `/project/${item.attributes.slug}`;
       return {
         label: `${item.attributes.title[locale]}`,
-        url: `${localePrefix}/project/${item.attributes.slug[locale]}`,
+        url: `/project/${item.attributes.slug}`,
+        // url: `${localePrefix}/project/${item.attributes.slug[locale]}`,
       };
     default:
       return null;

@@ -11,12 +11,12 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
         label: `${itemType.attributes.name}`,
         url: `${localePrefix}/`,
       };
-    case "landing_page":
-      // return `/project/${item.attributes.slug}`;
-      return {
-        label: `${item.attributes.title[locale]}`,
-        url: `${localePrefix}/${item.attributes.slug[locale]}`,
-      };
+    // case "landing_page":
+    //   // return `/project/${item.attributes.slug}`;
+    //   return {
+    //     label: `${item.attributes.title[locale]}`,
+    //     url: `${localePrefix}/${item.attributes.slug[locale]}`,
+    //   };
     default:
       return null;
   }
