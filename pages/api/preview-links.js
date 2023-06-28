@@ -3,7 +3,9 @@
 // this function knows how to convert a DatoCMS record
 // into a canonical URL within the website
 const generatePreviewUrl = ({ item, itemType, locale }) => {
-  console.log("item", item);
+  console.log("ITEM 12345", item);
+  console.log("itemType 12345", itemType);
+  console.log("locale 12345", locale);
   switch (itemType.attributes.api_key) {
     case "home":
       return `/`;
@@ -23,11 +25,12 @@ const handler = (req, res) => {
   if (req.method === "OPTIONS") {
     return res.status(200).send("ok");
   }
+  console.log("REQ BODY", req.body);
   const url = generatePreviewUrl(req.body);
   if (!url) {
     return res.status(200).json({ previewLinks: [] });
   }
-  const baseUrl = process.env.NEXT_PUBLIC_STAGING_SITE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_LOCAL_URL;
   const previewLinks = [
     // Public URL:
     {
@@ -38,7 +41,7 @@ const handler = (req, res) => {
     // and redirects to the URL provided with the `redirect` parameter:
     {
       label: "Draft version",
-      url: `${baseUrl}/api/preview?redirect=${url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
+      url: `${baseUrl}/api/preview-start?redirect=${url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
     },
   ];
   return res.status(200).json({ previewLinks });
