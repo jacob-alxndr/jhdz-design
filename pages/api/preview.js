@@ -6,7 +6,7 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
   console.log("item", item);
   switch (itemType.attributes.api_key) {
     case "home":
-      return ``;
+      return `/`;
     case "landing_page":
       return `/project/${item.attributes.slug}`;
     default:
