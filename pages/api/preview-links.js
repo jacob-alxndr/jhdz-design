@@ -35,7 +35,7 @@ const generateLinks = (req, res, env) => {
   if (!previewLink) {
     return res.status(200).json({ previewLinks: [] });
   }
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = env;
   const previewLinks = [
     // Public URL:
     {
