@@ -3,6 +3,7 @@
 // this function knows how to convert a DatoCMS record
 // into a canonical URL within the website
 const generatePreviewUrl = ({ item, itemType, locale }) => {
+  console.log("item", item);
   switch (itemType.attributes.api_key) {
     case "home":
       return `/`;
