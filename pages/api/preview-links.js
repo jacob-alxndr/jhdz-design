@@ -4,6 +4,7 @@
 // into a canonical URL within the website
 const generatePreviewUrl = ({ item, itemType, locale }) => {
   const localePrefix = locale === "en" ? "" : `/${locale}`;
+  console.log("item", item);
   switch (itemType.attributes.api_key) {
     case "home":
       // return `/`;
@@ -34,9 +35,11 @@ const generateLinks = (req, res, env) => {
     return res.status(200).send("ok");
   }
   const previewLink = generatePreviewUrl(req.body);
+  console.log("req.body", req.body);
   if (!previewLink) {
     return res.status(200).json({ previewLinks: [] });
   }
+  console.log("previewLink", previewLink);
   const baseUrl = env;
   const previewLinks = [
     // Public URL:
