@@ -4,7 +4,7 @@
 // into a canonical URL within the website
 const generatePreviewUrl = ({ item, itemType, locale }) => {
   const localePrefix = locale === "en" ? "" : `/${locale}`;
-  console.log("item", item);
+  console.log("item, itemType, locale: ", item, itemType, locale);
   switch (itemType.attributes.api_key) {
     case "home":
       // return `/`;
@@ -35,11 +35,11 @@ const generateLinks = (req, res, env) => {
     return res.status(200).send("ok");
   }
   const previewLink = generatePreviewUrl(req.body);
-  console.log("req.body", req.body);
+
   if (!previewLink) {
     return res.status(200).json({ previewLinks: [] });
   }
-  console.log("previewLink", previewLink);
+
   const baseUrl = env;
   const previewLinks = [
     // Public URL:
@@ -51,7 +51,7 @@ const generateLinks = (req, res, env) => {
     // and redirects to the URL provided with the `redirect` parameter:
     {
       label: `${previewLink.label} - Draft`,
-      url: `${baseUrl}/api/preview-start?redirect=${previewLink.url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
+      url: `${baseUrl}/api/preview-start?redirect=NOPE&secret=${process.env.PREVIEW_MODE_SECRET}`,
     },
   ];
   return res.status(200).json({ previewLinks });

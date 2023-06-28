@@ -17,6 +17,7 @@ export default async (req, res) => {
   // Enable Preview Mode by setting the cookies
   res.setPreviewData({});
   // console.log("res", res);
+
   // res.redirect("/");
   // res.end();
   res.end("preview mode enabled");
