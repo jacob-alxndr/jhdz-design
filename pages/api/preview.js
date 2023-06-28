@@ -37,7 +37,7 @@ const handler = (req, res) => {
     // and redirects to the URL provided with the `redirect` parameter:
     {
       label: "Draft version",
-      url: `${baseUrl}/api/start-preview-mode?redirect=${url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
+      url: `${baseUrl}/api/preview?redirect=${url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
     },
   ];
   return res.status(200).json({ previewLinks });
