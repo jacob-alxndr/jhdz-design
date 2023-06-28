@@ -4,12 +4,10 @@
 // into a canonical URL within the website
 const generatePreviewUrl = ({ item, itemType, locale }) => {
   switch (itemType.attributes.api_key) {
+    case "home":
+      return `/`;
     case "landing_page":
-      return `/landing-pages/${item.attributes.slug}`;
-    case "blog_post":
-      // blog posts are localized:
-      const localePrefix = locale === "en" ? "" : `/${locale}`;
-      return `${localePrefix}/blog/${item.attributes.slug[locale]}`;
+      return `/project/${item.attributes.slug}`;
     default:
       return null;
   }
