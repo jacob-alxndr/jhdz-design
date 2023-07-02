@@ -41,7 +41,7 @@ export default function Layout({
   }, [cmsDrawerData]);
 
   return (
-    <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }}>
+    <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
       <Head>
         <title>Jaime Isaac Hernández</title>
         <meta name="description" content="Jaime Isaac Hernández | Digital Designer" />
