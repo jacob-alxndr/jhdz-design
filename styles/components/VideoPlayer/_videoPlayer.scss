@@ -6,9 +6,9 @@
   // min-height: 90vh;
 
   div {
-    height: 90vh !important;
+    height: 100vh !important;
     width: 100% !important;
-    @include global.mq("tablet") {
+    @include global.mq("tablet-wide") {
       height: 50vh !important;
     }
     @include global.mq("phone-wide") {
