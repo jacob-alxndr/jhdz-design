@@ -1,11 +1,13 @@
 @use "/styles/shared/global";
 
+.container {
+  opacity: 0;
+}
 .card {
   overflow: hidden;
   transition: transform 0.3s global.$easing, opacity 0.2s global.$easing;
   padding-top: global.rem(32);
   border-top: 1px solid global.$color-black;
-
   .content {
     padding: 2rem 0 1rem;
     display: flex;

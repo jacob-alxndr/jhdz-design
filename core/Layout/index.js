@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { renderMetaTags } from "react-datocms";
 import { ComponentLoader } from "core/ComponentLoader";
@@ -7,6 +6,8 @@ import { useStore } from "@lib/store";
 import mappingNav from "@components/Global/GlobalNavigation/mapping";
 import mappingDrawer from "@components/Global/GlobalDrawer/mapping";
 import { motion as m } from "framer-motion";
+import GlobalFooter from "@components/Global/GlobalFooter";
+import { Suspense } from "react";
 export default function Layout({
   children,
   navigationData: cmsNavigationData,
@@ -18,17 +19,10 @@ export default function Layout({
   context,
   preview,
 }) {
-  const router = useRouter();
-
-  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath.split("?")[0]}`;
-
   const navigationData = useStore(({ navigationData }) => navigationData);
   const setNavigationData = useStore((state) => state.setNavigationData);
   const drawerData = useStore(({ drawerData }) => drawerData);
   const setDrawerData = useStore((state) => state.setDrawerData);
-  // const footerData = useStore(({ footerData }) => footerData);
-  // const setFooterData = useStore((state) => state.setFooterData);
-  // const setPreview = useStore(({ setPreview }) => setPreview);
 
   useEffect(() => {
     if (!navigationData) {
@@ -46,29 +40,14 @@ export default function Layout({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cmsDrawerData]);
 
-  // useEffect(() => {
-  //   if (!footerData) {
-  //     const mapped = mappingFooter(cmsFooterData);
-  //     setFooterData(mapped);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [cmsFooterData]);
-
-  // useEffect(() => {
-  //   setPreview(preview);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [preview]);
-
   return (
     <m.div
       // variants={container}
       // initial="hidden"
       // animate="show"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      // exit={{ opacity: 0 }}
-      className="layout"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.2 }}
     >
       <Head>
         <title>Jaime Isaac Hernández</title>
@@ -78,8 +57,6 @@ export default function Layout({
         <link rel="icon" href="/favicon.svg" />
         {/* <link rel="canonical" href={canonicalUrl || pageUrl} /> */}
       </Head>
-      {/* {children} */}
-
       <ComponentLoader
         models={data}
         components={components}
@@ -88,6 +65,7 @@ export default function Layout({
         }}
       />
       {children}
+      <GlobalFooter />
     </m.div>
   );
 }

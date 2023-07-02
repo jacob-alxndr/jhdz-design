@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { renderButtons } from "@components/UtilityComponents/Button/utils";
 export default function CardPreview({ data }) {
   return (
-    <div>
+    <div className={styles.container}>
       <Link
         // Link
         // URL Object

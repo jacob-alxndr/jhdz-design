@@ -11,7 +11,6 @@ import Lenis from "@studio-freight/lenis";
 import GlobalDrawer from "@components/Global/GlobalDrawer";
 
 export default function App({ Component, pageProps }) {
-  // const [isTouch, setIsTouch] = useState(false);
   const isTouch = useStore(({ isTouch }) => isTouch);
   const setIsTouch = useStore((state) => state.setIsTouch);
   const [lenis, setLenis] = useStore((state) => [state.lenis, state.setLenis]);
@@ -53,16 +52,15 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (drawerIsOpen) {
       document.body.classList.add("is-locked");
-      // lenis.stop();
     } else {
       document.body.classList.remove("is-locked");
-      // lenis?.start();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [drawerIsOpen]);
 
   useEffect(() => {
     setIsTouch(mobileDetect());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -70,7 +68,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <link rel="preconnect" href={`//graphql.datocms.com`}></link>
+        <link rel="preconnect" href={`https://graphql.datocms.com`}></link>
         <link rel="dns-preconnect" href="https://datocms-assets.com"></link>
         <link rel="dns-prefetch" href="https://datocms-assets.com"></link>
         <link rel="icon" href="/favicon.ico" />
@@ -88,7 +86,6 @@ export default function App({ Component, pageProps }) {
       <GlobalNavigation />
       <GlobalDrawer {...drawerData} />
       <Component {...pageProps} />
-      <GlobalFooter />
     </>
   );
 }

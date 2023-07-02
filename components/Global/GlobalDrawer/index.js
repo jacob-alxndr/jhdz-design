@@ -44,7 +44,7 @@ const GlobalDrawer = (props) => {
       .timeline({
         defaults: {
           duration: 1,
-          ease: CustomEase.create("custom", ".82, 0, .04, 1"),
+          ease: CustomEase.create("custom", ".82, 0, .1, 1"),
         },
         onReverseComplete: () => {
           gsap.set(el.current, { clearProps: true });

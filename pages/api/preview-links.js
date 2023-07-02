@@ -43,13 +43,13 @@ const generateLinks = (req, res, env) => {
   const previewLinks = [
     // Public URL:
     {
-      label: previewLink.label,
+      label: `Live: ${previewLink.label}`,
       url: `${env}/api/preview-end?redirect=${previewLink.url}`,
     },
     // This requires an API route on your project that starts Next.js Preview Mode
     // and redirects to the URL provided with the `redirect` parameter:
     {
-      label: `${previewLink.label} - Draft`,
+      label: `Draft: ${previewLink.label}`,
       url: `${env}/api/preview-start?redirect=${previewLink.url}&secret=${process.env.PREVIEW_MODE_SECRET}`,
     },
   ];

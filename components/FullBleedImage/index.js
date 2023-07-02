@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@styles/FullBleedImage/index.module.scss";
 import { Image, StructuredText } from "react-datocms";
 import clsx from "clsx";
 
 const FullBleedImage = (props) => {
   const {
-    index,
     image,
     verticalPaddingBottom,
     verticalPaddingBottomMobile,

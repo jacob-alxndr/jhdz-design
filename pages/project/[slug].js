@@ -47,7 +47,7 @@ export default function LandingPage({ data }) {
     globalDrawer,
     globalFooter,
   } = data;
-  console.log("data", data);
+
   return (
     <div>
       <Layout
