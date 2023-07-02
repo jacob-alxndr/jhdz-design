@@ -3,10 +3,17 @@
 .container {
   position: relative;
   width: 100%;
-  min-height: 90vh;
+  // min-height: 90vh;
+
   div {
     height: 90vh !important;
     width: 100% !important;
+    @include global.mq("tablet") {
+      height: 50vh !important;
+    }
+    @include global.mq("phone-wide") {
+      height: 30vh !important;
+    }
   }
   .caption {
     p {
