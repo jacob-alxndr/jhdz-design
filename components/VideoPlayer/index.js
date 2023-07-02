@@ -15,16 +15,7 @@ const VideoPlayer = (props) => {
   }, [isTouch]);
   return (
     <div className={clsx(styles.container, `padding-x-sm`, ...(componentPadding && componentPadding))}>
-      {url && (
-        <ReactPlayer
-          url={url}
-          loop
-          playsinline
-          // playing={isMobile}
-          muted
-          style={{ width: "100%" }}
-        />
-      )}
+      {url && <ReactPlayer url={url} loop playsinline playing={true} muted style={{ width: "100%" }} />}
 
       {/* {caption && (
         <div className={styles.caption}>
