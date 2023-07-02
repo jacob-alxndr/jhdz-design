@@ -27,6 +27,10 @@ const components = {
     comp: dynamic(() => import("@components/MediaPromo")),
     mapping: require(`@components/MediaPromo/mapping`),
   },
+  video_player: {
+    comp: dynamic(() => import("@components/VideoPlayer")),
+    mapping: require(`@components/VideoPlayer/mapping`),
+  },
   landing_page_footer: {
     comp: dynamic(() => import("@components/LandingPageFooter")),
     mapping: require(`@components/LandingPageFooter/mapping`),

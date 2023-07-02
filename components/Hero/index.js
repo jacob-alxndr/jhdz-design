@@ -40,11 +40,11 @@ const Hero = (props) => {
         { x: 40, clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" },
         {
           x: 0,
-          duration: 0.6,
+          duration: 0.8,
           clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
           ease: CustomEase.create("custom", ".86, 0, .07, 1"),
         },
-        "-=.1"
+        "+=.2"
       );
   }, []);
 
