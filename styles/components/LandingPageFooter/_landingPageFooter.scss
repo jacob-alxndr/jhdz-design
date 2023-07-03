@@ -29,8 +29,9 @@
   .buttons {
     a {
       text-decoration: underline;
+      display: block;
       span {
-        text-wrap: wrap;
+        white-space: wrap;
       }
     }
   }

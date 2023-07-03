@@ -8,9 +8,9 @@ const LandingPageFooter = (props) => {
   return (
     <div className={clsx(styles.container, "padding-x-md", ...(componentPadding && componentPadding))}>
       <div className={styles.columns}>
-        {conclusion && (
+        {conclusion?.[0] && (
           <div className={styles.textContent}>
-            {conclusion.map((st) => (
+            {conclusion?.map((st) => (
               <StructuredText key={st?.id} data={st?.structuredText} />
             ))}
           </div>
