@@ -1,12 +1,13 @@
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { renderMetaTags } from "react-datocms";
 import { ComponentLoader } from "core/ComponentLoader";
 import { useStore } from "@lib/store";
 import mappingNav from "@components/Global/GlobalNavigation/mapping";
 import mappingDrawer from "@components/Global/GlobalDrawer/mapping";
-import { motion as m } from "framer-motion";
+import { motion as m, AnimatePresence } from "framer-motion";
 import GlobalFooter from "@components/Global/GlobalFooter";
+import PageTransition from "core/PageTransition";
 
 export default function Layout({
   children,
@@ -23,6 +24,7 @@ export default function Layout({
   const setNavigationData = useStore((state) => state.setNavigationData);
   const drawerData = useStore(({ drawerData }) => drawerData);
   const setDrawerData = useStore((state) => state.setDrawerData);
+  const pageRef = useRef();
 
   useEffect(() => {
     if (!navigationData) {
@@ -39,9 +41,17 @@ export default function Layout({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cmsDrawerData]);
-
+  const onExitComplete = () => {
+    window.scrollTo({ top: 0 });
+  };
   return (
-    <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
+    <AnimatePresence mode="popLayout" onExitComplete={onExitComplete} initial={false}>
+      {/* <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        exit={{ opacity: 0 }}
+      > */}
       <Head>
         <title>Jaime Isaac Hernández</title>
         <meta name="description" content="Jaime Isaac Hernández | Digital Designer" />
@@ -59,6 +69,7 @@ export default function Layout({
       />
       {children}
       <GlobalFooter />
-    </m.div>
+      {/* </m.div> */}
+    </AnimatePresence>
   );
 }

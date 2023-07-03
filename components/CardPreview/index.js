@@ -15,6 +15,7 @@ export default function CardPreview({ data }) {
         // }}
         // or
         // URL Path
+        // scroll={false}
         href={`/project/${data?.slug}`}
       >
         <div className={styles.card}>

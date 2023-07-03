@@ -12,8 +12,8 @@ export default function CardList(props) {
   const { anchorId, eyebrow, title, cards, titleSize, componentPadding, classes, id } = props;
   const cardsRef = useRef();
 
+  gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
     const cards = Array.from(cardsRef?.current?.children);
 
     cards.forEach((card) => {

@@ -6,16 +6,19 @@ import GlobalNavigation from "@components/Global/GlobalNavigation";
 import GlobalFooter from "@components/Global/GlobalFooter";
 import { workSans } from "@lib/fonts";
 import { useStore } from "@lib/store";
+import { useRouter } from "next/router";
 import { useFrame } from "@studio-freight/hamo";
 import Lenis from "@studio-freight/lenis";
 import GlobalDrawer from "@components/Global/GlobalDrawer";
-
+import { AnimatePresence } from "framer-motion";
 export default function App({ Component, pageProps }) {
   const isTouch = useStore(({ isTouch }) => isTouch);
   const setIsTouch = useStore((state) => state.setIsTouch);
   const [lenis, setLenis] = useStore((state) => [state.lenis, state.setLenis]);
   const drawerData = useStore(({ drawerData }) => drawerData);
   const drawerIsOpen = useStore(({ drawerIsOpen }) => drawerIsOpen);
+  const router = useRouter();
+  const pageKey = router.asPath;
   // useEffect(() => {
   //   const lenis = new Lenis({
   //     duration: 1.2,
@@ -85,7 +88,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <GlobalNavigation />
       <GlobalDrawer {...drawerData} />
-      <Component {...pageProps} />
+      <Component {...pageProps} key={pageKey} />
     </>
   );
 }

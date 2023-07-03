@@ -23,7 +23,7 @@ const ButtonInternalLink = React.forwardRef(
        * */
 
       //TODO https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
-      <Link key={data.id} href={data.buttonUrl} prefetch={false} legacyBehavior>
+      <Link key={data.id} href={data.buttonUrl} legacyBehavior>
         <a
           ref={ref}
           className={setClasses()}
