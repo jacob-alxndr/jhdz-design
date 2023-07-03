@@ -4,7 +4,7 @@ import { motion, HTMLMotionProps } from "framer-motion";
 function PageTransition({ children, ref }) {
   const hidden = { opacity: 0 };
   const visible = { opacity: 1 };
-  const transition = { duration: 0.8, delay: 0.6 };
+  const transition = { duration: 0.8, delay: 0.5 };
 
   return (
     <motion.div
