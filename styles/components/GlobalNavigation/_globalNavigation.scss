@@ -21,14 +21,14 @@
       display: block;
       @include global.fontSize(64, 64);
       @include global.mq("phablet") {
-        @include global.fontSize(32, 32);
+        @include global.fontSize(48, 48);
       }
     }
     .iconAbout {
       display: block;
       @include global.fontSize(24, 24);
       @include global.mq("phablet") {
-        @include global.fontSize(32, 32);
+        @include global.fontSize(20, 20);
       }
     }
   }
