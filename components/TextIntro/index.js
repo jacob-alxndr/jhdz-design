@@ -17,7 +17,7 @@ const TextIntro = (props) => {
   } = data;
   console.log("roles", lists);
   return (
-    <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>
+    <div className={clsx(styles.container, "padding-x-md", ...(componentPadding && componentPadding))}>
       <div className={clsx(styles.heading)}>
         <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>
         <div className={clsx(styles.subtitle, `u-subheading--${subtitleSize}`)}>{subtitle}</div>

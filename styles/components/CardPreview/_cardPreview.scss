@@ -13,6 +13,9 @@
     display: flex;
     .heading {
       flex: 1;
+      .title {
+        margin-bottom: global.rem(8);
+      }
       .subtitle {
         color: global.$color-grey;
         display: block;

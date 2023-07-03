@@ -24,11 +24,13 @@
   .description {
     max-width: global.rem(680);
   }
-
+  :global(.u-heading--h2) {
+    text-transform: uppercase;
+  }
   .lists {
     display: flex;
     column-gap: global.rem(72);
-    // padding-right: global.rem(128);
+
     > * {
       white-space: nowrap;
     }

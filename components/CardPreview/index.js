@@ -21,7 +21,7 @@ export default function CardPreview({ data }) {
           <div className={styles.content}>
             <div className={styles.heading}>
               <h3 className={clsx(styles.title, "u-heading--h2")}>{data?.title}</h3>
-              <span className={clsx(styles.subtitle, "u-heading--sh2")}>{data?.subtitle}</span>
+              <span className={clsx(styles.subtitle, "u-subheading--sh2")}>{data?.subtitle}</span>
             </div>
 
             <div className={styles.description}>

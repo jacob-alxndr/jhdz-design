@@ -21,7 +21,7 @@ const GlobalNavigation = (props) => {
     tl.to(navElement, { delay: 1.8, duration: 0.3, y: 0 });
   }, []);
   return (
-    <div className={clsx(styles.header, classes, "padding-x-sm")} ref={navRef}>
+    <div className={clsx(styles.header, classes, "padding-x-md")} ref={navRef}>
       <nav className={clsx(styles.nav)}>
         <div className={clsx(styles.navContent)}>
           <Button

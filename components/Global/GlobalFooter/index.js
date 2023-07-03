@@ -4,9 +4,9 @@ import clsx from "clsx";
 
 const GlobalFooter = (props) => {
   return (
-    <footer className={clsx(styles.container, "padding-x-sm")}>
+    <footer className={clsx(styles.container, "padding-x-md")}>
       <div className={styles.content}>
-        <div className={clsx(styles.legal, "u-heading--h3")}>
+        <div className={clsx(styles.legal, "u-heading--h2")}>
           &copy; {process.env.NEXT_PUBLIC_SITE_NAME} {new Date().getFullYear()}
         </div>
       </div>

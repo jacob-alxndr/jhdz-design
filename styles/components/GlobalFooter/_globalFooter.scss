@@ -16,6 +16,7 @@
 .legal {
   color: global.$color-white;
   display: block;
+  text-transform: uppercase;
   @include global.mq("phone-wide") {
     @include global.fontSize(12, 18);
   }

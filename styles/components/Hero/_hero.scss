@@ -25,6 +25,7 @@
   .description {
     max-width: global.rem(662);
     text-align: left;
+    margin-bottom: global.rem(48);
     a {
       text-decoration: underline;
     }
@@ -35,6 +36,7 @@
       margin: 0;
     }
     @include global.mq("phablet") {
+      margin-bottom: global.rem(0);
       a {
         @include global.fontSize(18, 20);
       }
@@ -67,12 +69,6 @@
   width: 100%;
   z-index: 1;
   .image {
-    img {
-      // clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-    }
-    @include global.mq("desktop-wide", "min") {
-      max-width: global.rem(388);
-    }
     max-width: global.rem(288);
     @include global.mq("tablet-wide") {
       max-width: 100%;
@@ -86,7 +82,11 @@
 
 .heading {
   align-items: baseline;
+  border-bottom: 1px solid global.$color-black;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
   column-gap: global.rem(16);
   transform: translateY(-20px);
-  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  .subtitle {
+    color: global.$color-grey;
+  }
 }

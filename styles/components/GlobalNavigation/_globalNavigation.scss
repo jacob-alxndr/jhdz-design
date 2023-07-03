@@ -4,13 +4,10 @@
   width: 100%;
   z-index: global.$zIndex-4--nav;
   position: relative;
-  // opacity: 0;
-  // background-color: red;
   opacity: 0;
-  // transform: translateY(-100%);
 }
 .nav {
-  padding: global.rem(32) 0;
+  padding: global.rem(72) 0;
   width: 100%;
   @include global.mq("phablet") {
     padding: global.rem(16) 0;
@@ -23,10 +20,16 @@
     .iconLogo {
       display: block;
       @include global.fontSize(64, 64);
+      @include global.mq("phablet") {
+        @include global.fontSize(32, 32);
+      }
     }
     .iconAbout {
       display: block;
       @include global.fontSize(24, 24);
+      @include global.mq("phablet") {
+        @include global.fontSize(32, 32);
+      }
     }
   }
 }

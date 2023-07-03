@@ -14,6 +14,8 @@
 
   dt {
     color: global.$color-grey;
+    @include global.fontSize(20, 24);
+    font-weight: 300;
   }
 
   p {

@@ -14,14 +14,25 @@ const VideoPlayer = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTouch]);
   return (
-    <div className={clsx(styles.container, `padding-x-sm`, ...(componentPadding && componentPadding))}>
-      {url && <ReactPlayer url={url} loop playsinline playing={true} muted style={{ width: "100%" }} />}
+    <div className={clsx(styles.container, `padding-x-md`, ...(componentPadding && componentPadding))}>
+      {url && (
+        <ReactPlayer
+          url={url}
+          width={"100%"}
+          height={"100%"}
+          loop
+          playsinline
+          playing={true}
+          muted
+          // style={{ width: "100%" }}
+        />
+      )}
 
-      {/* {caption && (
+      {caption && (
         <div className={styles.caption}>
           <StructuredText data={caption} />
         </div>
-      )} */}
+      )}
     </div>
   );
 };

@@ -49,10 +49,10 @@ const Hero = (props) => {
   }, []);
 
   return (
-    <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>
+    <div className={clsx(styles.container, "padding-x-md", ...(componentPadding && componentPadding))}>
       <div className={clsx(styles.content, styles.heading)} ref={headingRef}>
         <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>
-        <div className={clsx(`u-subheading--${subtitleSize}`)}>{subtitle}</div>
+        <div className={clsx(`u-subheading--${subtitleSize}`, styles.subtitle)}>{subtitle}</div>
       </div>
       <div className={styles.content} ref={textContentRef}>
         <div className={styles.textContent}>

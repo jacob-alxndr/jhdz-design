@@ -12,7 +12,7 @@ const TextPromo = (props) => {
       className={clsx(
         styles.container,
         styles[`align--${alignment}`],
-        "padding-x-sm",
+        "padding-x-md",
         ...(componentPadding && componentPadding),
         classes
       )}

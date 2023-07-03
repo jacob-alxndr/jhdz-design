@@ -36,7 +36,7 @@ export default function CardList(props) {
       id={anchorId}
       className={clsx(
         styles.container,
-        "padding-x-sm",
+        "padding-x-md",
         ...(componentPadding && componentPadding),
         classes
       )}

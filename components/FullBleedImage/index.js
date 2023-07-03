@@ -7,7 +7,7 @@ const FullBleedImage = (props) => {
   const { image, componentPadding, caption } = props;
 
   return (
-    <div className={clsx(styles.container, `padding-x-sm`, ...(componentPadding && componentPadding))}>
+    <div className={clsx(styles.container, `padding-x-md`, ...(componentPadding && componentPadding))}>
       <div className={styles.image__wrapper}>
         {image &&
           image.map((img) => (

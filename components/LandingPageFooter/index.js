@@ -6,7 +6,7 @@ const LandingPageFooter = (props) => {
   const { buttons, componentPadding, conclusion } = props;
   console.log("props", props);
   return (
-    <div className={clsx(styles.container, "padding-x-sm", ...(componentPadding && componentPadding))}>
+    <div className={clsx(styles.container, "padding-x-md", ...(componentPadding && componentPadding))}>
       <div className={styles.columns}>
         {conclusion && (
           <div className={styles.textContent}>

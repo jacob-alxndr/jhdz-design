@@ -15,7 +15,7 @@ const MediaPromo = (props) => {
           [styles.flexFlip]: flex,
         },
         styles[`align--${alignment}`],
-        "padding-x-sm",
+        "padding-x-md",
         ...(componentPadding && componentPadding),
         classes
       )}
