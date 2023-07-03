@@ -48,7 +48,7 @@ a {
 
 p {
   color: global.$color-black;
-  @include global.font-primaryN4;
+  @include global.font-primaryN3;
   @extend %body--large;
 }
 
