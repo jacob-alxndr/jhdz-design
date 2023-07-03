@@ -5,18 +5,22 @@ export const IconLogo = (props) => {
   return (
     <svg
       className={clsx("icon", "icon-logo", props?.classes)}
-      ref={props?.childRef}
       xmlns="http://www.w3.org/2000/svg"
       width="473"
       height="377"
       viewBox="0 0 473 377"
       fill="none"
     >
-      <path d="M378.309 0V94.1439H283.617V187.833H378.309V281.977H473V0H378.309Z" fill="black" />
-      <path d="M283.617 0H188.926V94.1439H283.617V0Z" fill="black" />
+      <path
+        ref={props?.crossBarRef}
+        d="M378.309 0V94.1439H283.617V187.833H378.309V281.977H473V0H378.309Z"
+        fill="black"
+      />
+      <path ref={props?.tittleRef} d="M283.617 0H188.926V94.1439H283.617V0Z" fill="black" />
       <path
         d="M188.926 187.836C188.926 239.683 146.383 281.98 94.2341 281.98C76.8511 281.98 60.8405 277.432 47.1171 269.245L0 351.11C27.9043 367.028 59.9256 376.124 94.6916 376.124C198.989 376.124 283.617 291.985 283.617 187.836H188.926Z"
         fill="black"
+        ref={props?.arcRef}
       />
     </svg>
   );
@@ -76,3 +80,37 @@ export const IconArrowDown = (props) => {
     </svg>
   );
 };
+// export const IconMorph = (props) => {
+//   return (
+//     <svg
+//       className={clsx("icon", "icon-morph", props?.classes)}
+//       ref={props?.childRef}
+//       xmlns="http://www.w3.org/2000/svg"
+//       // xmlns:xlink="http://www.w3.org/1999/xlink"
+//       x="0px"
+//       y="0px"
+//       viewBox="0 0 69.6 55.8"
+//       // style="enable-background:new 0 0 69.6 55.8;"
+//       // xml:space="preserve"
+//     >
+//       <g id="Start">
+//         <path d="M31.2,0.2h-9.6v9.6h9.6V0.2z" />
+//         <path d="M50.4,19.3h-9.6v9.6h9.6V19.3z" />
+//         <path d="M69.6,9.8H60v28.6h9.6V9.8z" />
+//         <path
+//           d="M27.5,36.6c-4.6,2.6-10.4,1-13.1-3.6c-0.9-1.5-1.3-3.2-1.3-4.8l-9.6,0c0,3.3,0.8,6.5,2.6,9.6c5.3,9.2,17,12.4,26.1,7.1
+//      L27.5,36.6z"
+//         />
+//       </g>
+//       <g id="End">
+//         <path d="M31.2,9.8h-9.6v9.6h9.6V9.8z" />
+//         <path d="M40.8,19.4h-9.6v9.6h9.6V19.4z" />
+//         <path d="M50.4,9.8h-9.6v28.6h9.6V9.8z" />
+//         <path
+//           d="M21.6,28.9c0,5.3-4.3,9.6-9.6,9.6c-1.8,0-3.4-0.5-4.8-1.3l-4.8,8.3C5.3,47.1,8.5,48,12,48c10.6,0,19.2-8.5,19.2-19.1H21.6z
+//      "
+//         />
+//       </g>
+//     </svg>
+//   );
+// };
