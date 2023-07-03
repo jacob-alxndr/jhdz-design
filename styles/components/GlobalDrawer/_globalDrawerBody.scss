@@ -36,6 +36,10 @@
         p {
           @extend %body--medium;
           color: global.$color-white;
+
+          @include global.mq("phablet") {
+            @include global.fontSize(16, 20);
+          }
         }
       }
 
@@ -59,7 +63,7 @@
     color: global.$color-white;
     @include global.fontSize(20, 24);
     @include global.mq("tablet-wide") {
-      @include global.fontSize(10, 22);
+      @include global.fontSize(16, 20);
     }
   }
 
