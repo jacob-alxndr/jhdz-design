@@ -54,8 +54,21 @@ export default function Layout({
       > */}
       <Head>
         <title>Jaime Isaac Hernández</title>
-        <meta name="description" content="Jaime Isaac Hernández | Digital Designer" />
+        <meta property="og:title" content="Jaime Isaac Hernández" />
+        <meta
+          name="description"
+          content="I’m a designer who specializes in digital product design and all things visual."
+        />
+        <meta
+          property="og:description"
+          content="I’m a designer who specializes in digital product design and all things visual."
+        />
+        <meta
+          property="og:image"
+          content="https://www.datocms-assets.com/101466/1686081873-jhdz-og-image.jpg"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         {seo && siteSeo && renderMetaTags([...seo, ...siteSeo.faviconMetaTags])}
         <link rel="icon" href="/favicon.svg" />
         {/* <link rel="canonical" href={canonicalUrl || pageUrl} /> */}
