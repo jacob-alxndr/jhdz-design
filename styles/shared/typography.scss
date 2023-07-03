@@ -115,8 +115,8 @@ $font-primary: var(--font-primary), "IBM Plex Sans", "ibm plex sans";
 
   @include mixins.mq("tablet") {
     @include mixins.fontSize(
-      map_get(variables.$typography-size, "h3"),
-      map_get(variables.$typography-line-height, "h3")
+      map_get(variables.$typography-size, "h2"),
+      map_get(variables.$typography-line-height, "h2")
     );
   }
 }
