@@ -4,7 +4,7 @@ import { StructuredText } from "react-datocms";
 import { renderButtons } from "@components/UtilityComponents/Button/utils";
 const LandingPageFooter = (props) => {
   const { buttons, componentPadding, conclusion } = props;
-  console.log("props", props);
+
   return (
     <div className={clsx(styles.container, "padding-x-md", ...(componentPadding && componentPadding))}>
       <div className={styles.columns}>

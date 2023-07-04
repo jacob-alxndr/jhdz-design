@@ -6,7 +6,7 @@
   @include global.size(100%, global.rem(134));
   align-items: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: global.rem(80) 0 0;
   position: relative;
   z-index: 2;

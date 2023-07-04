@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/components/CardList/index.module.scss";
-import CardPreview from "@components/CardPreview";
+import CardPreview from "@components/CardList/CardPreview";
 import clsx from "clsx";
 
 import { gsap } from "gsap";
@@ -23,10 +23,11 @@ export default function CardList(props) {
           trigger: card,
           // markers: true,
           scrub: true,
-          start: "top 70%", // when the top of the trigger hits the top of the viewport
-          end: "40% 50%", // when the bottom of the trigger hits the bottom of the viewport
+          start: "top 80%", // when the top of the trigger hits the top of the viewport
+          end: "40% 40%", // when the bottom of the trigger hits the bottom of the viewport
         },
         opacity: 1,
+        y: -64,
       });
     });
     // tl.to(cards, { scrollTrigger: { trigger: cards, start: "top top", markers: true }, opacity: 1 });

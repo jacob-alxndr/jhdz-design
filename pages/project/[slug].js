@@ -1,4 +1,3 @@
-import { forwardRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import GET_LANDING_PAGE from "operations/queries/getLandingPages";
 import GET_ALL_LANDING_PAGES from "operations/queries/getAllLandingPages";
@@ -39,7 +38,7 @@ const components = {
   },
 };
 
-export default forwardRef(function LandingPage({ data, ref }) {
+export default function LandingPage({ data }) {
   const {
     page: {
       0: {
@@ -54,23 +53,8 @@ export default forwardRef(function LandingPage({ data, ref }) {
     globalFooter,
   } = data;
 
-  // const onEnter = () => {
-  //   window.scrollTo({ top: 0 });
-  // };
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     onEnter();
-  //   }, "300");
-  // }, []);
-
   return (
-    // <m.div
-    //   initial={{ opacity: 0 }}
-    //   animate={{ opacity: 1 }}
-    //   transition={{ duration: 1, delay: 0.5 }}
-    //   exit={{ opacity: 0 }}
-    // >\
-    <PageTransition ref={ref}>
+    <PageTransition>
       <Layout
         components={components}
         navigationData={globalNavigation}
@@ -78,10 +62,9 @@ export default forwardRef(function LandingPage({ data, ref }) {
         footerData={globalFooter}
         data={[textIntro, ...bodyComponents, landingPageFooter]}
       />
-      {/* // </m.div> */}
     </PageTransition>
   );
-});
+}
 
 export async function getStaticPaths() {
   const data = await request({

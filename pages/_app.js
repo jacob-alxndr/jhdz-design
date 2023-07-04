@@ -1,48 +1,23 @@
 import "../styles/app.globals.scss";
 import Head from "next/head";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { mobileDetect } from "@utils/mobileDetect";
 import GlobalNavigation from "@components/Global/GlobalNavigation";
-import GlobalFooter from "@components/Global/GlobalFooter";
+
 import { workSans } from "@lib/fonts";
 import { useStore } from "@lib/store";
 import { useRouter } from "next/router";
-import { useFrame } from "@studio-freight/hamo";
-import Lenis from "@studio-freight/lenis";
+
 import GlobalDrawer from "@components/Global/GlobalDrawer";
-import { AnimatePresence } from "framer-motion";
+
 export default function App({ Component, pageProps }) {
   const isTouch = useStore(({ isTouch }) => isTouch);
   const setIsTouch = useStore((state) => state.setIsTouch);
-  const [lenis, setLenis] = useStore((state) => [state.lenis, state.setLenis]);
+
   const drawerData = useStore(({ drawerData }) => drawerData);
   const drawerIsOpen = useStore(({ drawerIsOpen }) => drawerIsOpen);
   const router = useRouter();
   const pageKey = router.asPath;
-  // useEffect(() => {
-  //   const lenis = new Lenis({
-  //     duration: 1.2,
-  //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  //     orientation: "vertical",
-  //     gestureOrientation: "vertical",
-  //     smoothWheel: true,
-  //     wheelMultiplier: 1,
-  //     smoothTouch: false,
-  //     touchMultiplier: 4,
-  //     infinite: false,
-  //   });
-
-  //   window.lenis = lenis;
-  //   setLenis(lenis);
-  //   // lenis.on("scroll", (e) => {
-  //   //   console.log(e.targetScroll);
-  //   // });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // useFrame((time) => {
-  //   lenis?.raf(time);
-  // }, []);
 
   useEffect(() => {
     if (isTouch) {

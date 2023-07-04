@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { request } from "../lib/datocms";
 import GET_HOME from "operations/queries/getHome";
 import Layout from "core/Layout";
@@ -27,7 +26,7 @@ const components = {
   },
 };
 
-export default forwardRef(function Home({ data, ref }) {
+export default function Home({ data }) {
   const {
     home: { hero, components: bodyComponents },
     // _site,
@@ -37,7 +36,7 @@ export default forwardRef(function Home({ data, ref }) {
   } = data;
 
   return (
-    <PageTransition ref={ref}>
+    <PageTransition>
       <Layout
         components={components}
         navigationData={globalNavigation}
@@ -47,7 +46,7 @@ export default forwardRef(function Home({ data, ref }) {
       />
     </PageTransition>
   );
-});
+}
 export async function getStaticProps(context) {
   const data = await request({
     query: GET_HOME,

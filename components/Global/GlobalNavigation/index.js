@@ -15,6 +15,7 @@ const GlobalNavigation = (props) => {
   const tittleRef = useRef();
   const arcRef = useRef();
   const crossBarRef = useRef();
+  gsap.registerPlugin(CustomEase);
   useEffect(() => {
     const navElement = navRef?.current;
     const tittle = tittleRef?.current;

@@ -16,7 +16,7 @@ const Hero = (props) => {
   const headingRef = useRef();
   const textContentRef = useRef();
   const imgRef = useRef();
-
+  gsap.registerPlugin(CustomEase);
   useEffect(() => {
     const headingEl = headingRef?.current;
     const textContentEl = textContentRef?.current;

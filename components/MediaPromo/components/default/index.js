@@ -4,8 +4,8 @@ import { StructuredText, Image } from "react-datocms";
 import clsx from "clsx";
 
 const Default = (props) => {
-  const { eyebrow, content, title, alignment, image, textBlockWidth } = props?.data;
-  console.log("textBlockWidth", textBlockWidth);
+  const { content, title, image, textBlockWidth } = props?.data;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.textContent}>

@@ -43,8 +43,8 @@ const DrawerBody = forwardRef(({ ariaLabel, children, onClose }, ref) => {
       </div>
       {footerData && (
         <div className={clsx(styles.drawerFooter)}>
-          {footerData?.map((footer) => (
-            <StructuredText key={footerData?.id} data={footer.structuredText} />
+          {footerData?.map((footer, i) => (
+            <StructuredText key={`${footerData?.id}-${i}`} data={footer.structuredText} />
           ))}
         </div>
       )}

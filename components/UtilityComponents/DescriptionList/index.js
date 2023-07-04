@@ -1,7 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "@styles/DescriptionList/index.module.scss";
-import Markdown from "@components/UtilityComponents/Markdown";
 
 const DescriptionList = ({ props }) => {
   const { title, items, classes } = props;

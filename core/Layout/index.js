@@ -27,6 +27,10 @@ export default function Layout({
   const pageRef = useRef();
 
   useEffect(() => {
+    // console.log("context", context);
+  }, []);
+
+  useEffect(() => {
     if (!navigationData) {
       const mapped = mappingNav(cmsNavigationData);
       setNavigationData(mapped);
@@ -45,14 +49,14 @@ export default function Layout({
     window.scrollTo({ top: 0 });
   };
   return (
-    <AnimatePresence mode="popLayout" onExitComplete={onExitComplete} initial={false}>
+    <AnimatePresence onExitComplete={onExitComplete} initial={false}>
       {/* <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
         exit={{ opacity: 0 }}
       > */}
-      <Head>
+      <Head key={"head"}>
         <title>Jaime Isaac Hernández</title>
         <meta property="og:title" content="Jaime Isaac Hernández" />
         <meta
@@ -74,6 +78,7 @@ export default function Layout({
         {/* <link rel="canonical" href={canonicalUrl || pageUrl} /> */}
       </Head>
       <ComponentLoader
+        key={"ComponentLoader"}
         models={data}
         components={components}
         context={{
@@ -81,7 +86,7 @@ export default function Layout({
         }}
       />
       {children}
-      <GlobalFooter />
+      <GlobalFooter key={"GlobalFooter"} />
       {/* </m.div> */}
     </AnimatePresence>
   );
