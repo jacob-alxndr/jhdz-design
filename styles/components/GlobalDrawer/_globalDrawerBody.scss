@@ -1,6 +1,7 @@
 @use "/styles/shared/global";
 .drawer {
   overflow-y: scroll;
+  overscroll-behavior: none;
 }
 .header {
   @include global.size(100%, global.rem(134));
@@ -24,7 +25,6 @@
   color: global.$color-white;
   position: relative;
   z-index: 1;
-  overflow-y: scroll;
 
   // Text content
   .body__content__copy {

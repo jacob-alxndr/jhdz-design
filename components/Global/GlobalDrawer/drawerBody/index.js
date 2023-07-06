@@ -37,9 +37,7 @@ const DrawerBody = forwardRef(({ ariaLabel, children, onClose }, ref) => {
         </Button>
       </div>
       <div className={styles.content}>
-        <div className={clsx(styles.body__content)} data-lenis-prevent>
-          {children}
-        </div>
+        <div className={clsx(styles.body__content)}>{children}</div>
       </div>
       {footerData && (
         <div className={clsx(styles.drawerFooter)}>
