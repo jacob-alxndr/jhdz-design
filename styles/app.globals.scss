@@ -13,20 +13,17 @@ body {
   scroll-behavior: smooth;
   @include global.fontSize(16, 24);
   @include global.font-primaryN4;
-  // scrollbar-width: none;
 }
-.layout {
-  position: relative;
-}
+
 .is-locked {
-  // overscroll-behavior: none;
-  // overflow: hidden;
-  // position: absolute;
-  // scrollbar-width: none;
-  // &::-webkit-scrollbar {
-  //   display: none !important;
-  //   width: 0 !important;
-  // }
+  overscroll-behavior: none;
+  overflow: hidden;
+  position: fixed;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+  }
 }
 
 ::selection {
