@@ -44,7 +44,7 @@
       padding-right: 0;
     }
     @include global.mq("tablet-wide") {
-      // flex-direction: column;
+      flex-direction: column;
     }
   }
 

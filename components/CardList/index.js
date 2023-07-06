@@ -24,7 +24,7 @@ export default function CardList(props) {
           // markers: true,
           scrub: true,
           start: "top 80%", // when the top of the trigger hits the top of the viewport
-          end: "40% 40%", // when the bottom of the trigger hits the bottom of the viewport
+          end: "40% 70%", // when the bottom of the trigger hits the bottom of the viewport
         },
         opacity: 1,
         y: 0,
@@ -42,11 +42,6 @@ export default function CardList(props) {
         classes
       )}
     >
-      <div className={styles.heading}>
-        {eyebrow && <span>{eyebrow}</span>}
-        {title && <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>}
-      </div>
-
       {cards && (
         <div className={styles.content} ref={cardsRef}>
           {cards?.map((c, i) => (

@@ -10,10 +10,10 @@
   // padding-top: global.rem(32);
   border-top: 1px solid global.$color-black;
   .content {
-    padding: 2rem 0 1rem;
+    padding: global.rem(32) 0 global.rem(24);
     display: flex;
     @include global.mq("tablet-wide") {
-      padding: 0 0 1rem;
+      padding: global.rem(24) 0;
     }
     .heading {
       flex: 1;
