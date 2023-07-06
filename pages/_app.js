@@ -27,14 +27,14 @@ export default function App({ Component, pageProps }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTouch]);
-  useEffect(() => {
-    if (drawerIsOpen) {
-      document.body.classList.add("is-locked");
-    } else {
-      document.body.classList.remove("is-locked");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [drawerIsOpen]);
+  // useEffect(() => {
+  //   if (drawerIsOpen) {
+  //     document.body.classList.add("is-locked");
+  //   } else {
+  //     document.body.classList.remove("is-locked");
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [drawerIsOpen]);
 
   useEffect(() => {
     setIsTouch(mobileDetect());

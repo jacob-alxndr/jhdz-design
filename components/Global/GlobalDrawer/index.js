@@ -47,6 +47,7 @@ const GlobalDrawer = (props) => {
           gsap.set(el.current, { clearProps: true });
           // gsap.set(state.current.site, { clearProps: true });
           el.current.classList.remove(styles["is-active"]);
+          document.body.classList.remove("is-locked");
           setDrawerIsOpen(false);
           setDrawerContent("");
         },
@@ -65,8 +66,19 @@ const GlobalDrawer = (props) => {
 
       .to(state.current.close, { y: 0, opacity: 1 }, 0.5)
       .to(state.current.footer, { y: 0, opacity: 1 }, 0.5)
-      .to(state.current.content, { y: 0, opacity: 1 }, 0.5);
-    el.current.classList.add(styles["is-active"]);
+      .to(
+        state.current.content,
+        {
+          y: 0,
+          opacity: 1,
+          onComplete: () => {
+            document.body.classList.add("is-locked");
+
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+          },
+        },
+        0.5
+      );
   };
   const handleOnHide = () => {
     if (state.current.tl) {
