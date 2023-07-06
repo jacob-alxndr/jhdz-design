@@ -33,7 +33,6 @@ const GlobalDrawer = (props) => {
   }, [drawerIsOpen]);
 
   const handleOnShow = () => {
-    el.current.classList.add(styles["is-active"]);
     state.current.backdrop = document?.body?.querySelector(`.drawer_backdrop__background`);
     state.current.content = drawerRef.current.querySelector(`.${styles.content}`);
     state.current.footer = drawerRef.current.querySelector(`.${styles.drawerFooter}`);
@@ -67,6 +66,7 @@ const GlobalDrawer = (props) => {
       .to(state.current.close, { y: 0, opacity: 1 }, 0.5)
       .to(state.current.footer, { y: 0, opacity: 1 }, 0.5)
       .to(state.current.content, { y: 0, opacity: 1 }, 0.5);
+    el.current.classList.add(styles["is-active"]);
   };
   const handleOnHide = () => {
     if (state.current.tl) {
