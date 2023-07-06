@@ -16,8 +16,10 @@
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    overflow-x: hidden;
+    overflow: -moz-scrollbars-none;
     ::-webkit-scrollbar {
-      display: none;
+      display: none !important;
       width: 0 !important;
     }
   }
