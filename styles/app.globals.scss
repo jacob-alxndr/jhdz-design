@@ -21,7 +21,7 @@ body {
 .is-locked {
   overscroll-behavior: none;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none !important;
