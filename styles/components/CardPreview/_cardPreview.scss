@@ -6,11 +6,14 @@
 .card {
   overflow: hidden;
   transition: transform 0.3s global.$easing, opacity 0.2s global.$easing;
-  padding-top: global.rem(32);
+
   border-top: 1px solid global.$color-black;
   .content {
     padding: 2rem 0 1rem;
     display: flex;
+    @include global.mq("tablet-wide") {
+      padding: 0 0 1rem;
+    }
     .heading {
       flex: 1;
       .title {

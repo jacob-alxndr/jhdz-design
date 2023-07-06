@@ -16,6 +16,9 @@
     color: global.$color-grey;
     @include global.fontSize(20, 24);
     font-weight: 300;
+    @include global.mq("tablet-wide") {
+      @include global.fontSize(14, 20);
+    }
   }
 
   p {

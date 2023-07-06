@@ -76,7 +76,7 @@
   }
   @include global.mq("tablet-wide") {
     flex-direction: column;
-    row-gap: global.rem(16);
+    row-gap: global.rem(64);
   }
 }
 

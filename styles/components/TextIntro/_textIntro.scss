@@ -23,6 +23,11 @@
   justify-content: space-between;
   .description {
     max-width: global.rem(680);
+    @include global.mq("tablet-wide") {
+      p {
+        @include global.fontSize(16, 22);
+      }
+    }
   }
   :global(.u-heading--h2) {
     text-transform: uppercase;
@@ -30,6 +35,7 @@
   .lists {
     display: flex;
     column-gap: global.rem(72);
+    // padding-right: global.rem(128);
 
     > * {
       white-space: nowrap;
@@ -38,7 +44,7 @@
       padding-right: 0;
     }
     @include global.mq("tablet-wide") {
-      flex-direction: column;
+      // flex-direction: column;
     }
   }
 

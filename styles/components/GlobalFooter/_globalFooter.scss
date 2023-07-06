@@ -18,6 +18,6 @@
   display: block;
   text-transform: uppercase;
   @include global.mq("phone-wide") {
-    @include global.fontSize(12, 18);
+    @include global.fontSize(16, 18);
   }
 }
