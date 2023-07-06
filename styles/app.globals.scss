@@ -13,14 +13,16 @@ body {
   scroll-behavior: smooth;
   @include global.fontSize(16, 24);
   @include global.font-primaryN4;
+  // scrollbar-width: none;
 }
 .layout {
   position: relative;
 }
 .is-locked {
-  // overscroll-behavior: none;
-  // overflow: hidden;
-  // position: fixed;
+  overscroll-behavior: none;
+  overflow: hidden;
+  position: fixed;
+  scrollbar-width: none;
 }
 
 ::selection {

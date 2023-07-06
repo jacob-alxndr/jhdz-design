@@ -2,6 +2,7 @@
 .drawer {
   overflow-y: scroll;
   overscroll-behavior: none;
+  scrollbar-width: none;
 }
 .header {
   @include global.size(100%, global.rem(134));
@@ -31,6 +32,7 @@
     .columns {
       display: flex;
       gap: global.rem(48);
+
       div {
         flex: 1;
         p {
