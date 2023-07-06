@@ -9,7 +9,10 @@
   overscroll-behavior: none;
   @include global.size(100%);
   color: global.$color-white;
-
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+  }
   .drawerBodyWrapper {
     position: relative;
     height: 100%;
@@ -18,7 +21,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       display: none !important;
       width: 0 !important;
     }
@@ -28,6 +31,11 @@
     opacity: 1;
     pointer-events: all;
     z-index: global.$zIndex-6--drawer;
+
+    &::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+    }
   }
 }
 
