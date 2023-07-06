@@ -13,10 +13,10 @@
   .drawerBodyWrapper {
     position: relative;
     height: 100%;
+    overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    overflow-x: hidden;
     overflow: -moz-scrollbars-none;
     ::-webkit-scrollbar {
       display: none !important;
