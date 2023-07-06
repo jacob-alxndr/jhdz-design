@@ -18,8 +18,9 @@ body {
   position: relative;
 }
 .is-locked {
-  overscroll-behavior: none;
-  position: fixed;
+  // overscroll-behavior: none;
+  // overflow: hidden;
+  // position: fixed;
 }
 
 ::selection {
