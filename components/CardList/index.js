@@ -27,7 +27,7 @@ export default function CardList(props) {
           end: "40% 40%", // when the bottom of the trigger hits the bottom of the viewport
         },
         opacity: 1,
-        y: -64,
+        y: 0,
       });
     });
     // tl.to(cards, { scrollTrigger: { trigger: cards, start: "top top", markers: true }, opacity: 1 });
