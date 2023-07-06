@@ -77,7 +77,13 @@ const GlobalDrawer = (props) => {
   };
 
   return (
-    <div className={clsx(styles.backdrop, "padding-x-md")} ref={el}>
+    <div
+      className={clsx(
+        styles.backdrop
+        // "padding-x-md"
+      )}
+      ref={el}
+    >
       <div className={styles.drawerBodyWrapper}>
         <DrawerBody
           onClose={handleOnHide}
