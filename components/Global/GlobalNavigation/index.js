@@ -9,19 +9,18 @@ import { gsap } from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 const GlobalNavigation = (props) => {
   const { classes } = props;
-  const navigationData = useStore(({ navigationData }) => navigationData);
   const drawerData = useStore(({ drawerData }) => drawerData);
   const navRef = useRef();
   const tittleRef = useRef();
   const arcRef = useRef();
   const crossBarRef = useRef();
   gsap.registerPlugin(CustomEase);
+
   useEffect(() => {
     const navElement = navRef?.current;
     const tittle = tittleRef?.current;
     const crossBar = crossBarRef?.current;
     const arc = arcRef?.current;
-
     const tl = gsap.timeline({ default: { ease: CustomEase.create("custom", ".86, 0, .07, 1") } });
 
     tl.set(navElement, { opacity: 1, y: -200 })

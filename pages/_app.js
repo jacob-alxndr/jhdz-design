@@ -3,19 +3,15 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { mobileDetect } from "@utils/mobileDetect";
 import GlobalNavigation from "@components/Global/GlobalNavigation";
-
 import { workSans } from "@lib/fonts";
 import { useStore } from "@lib/store";
 import { useRouter } from "next/router";
-
 import GlobalDrawer from "@components/Global/GlobalDrawer";
 
 export default function App({ Component, pageProps }) {
   const isTouch = useStore(({ isTouch }) => isTouch);
   const setIsTouch = useStore((state) => state.setIsTouch);
-
   const drawerData = useStore(({ drawerData }) => drawerData);
-  const drawerIsOpen = useStore(({ drawerIsOpen }) => drawerIsOpen);
   const router = useRouter();
   const pageKey = router.asPath;
 
@@ -27,14 +23,6 @@ export default function App({ Component, pageProps }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTouch]);
-  // useEffect(() => {
-  //   if (drawerIsOpen) {
-  //     document.body.classList.add("is-locked");
-  //   } else {
-  //     document.body.classList.remove("is-locked");
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [drawerIsOpen]);
 
   useEffect(() => {
     setIsTouch(mobileDetect());

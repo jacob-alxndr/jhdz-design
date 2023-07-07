@@ -5,7 +5,6 @@ import { request } from "@lib/datocms";
 import { getAllSlugs } from "@lib/data";
 import Layout from "core/Layout";
 import PageTransition from "core/PageTransition";
-// import { motion as m } from "framer-motion";
 
 const components = {
   global_drawer: {

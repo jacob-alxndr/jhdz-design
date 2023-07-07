@@ -12,14 +12,8 @@ import Button from "./index";
  * @returns
  */
 
-export const renderButtons = (
-  buttons,
-  wrapperClasses,
-  buttonClasses,
-  wrapperAttributes
-) => {
+export const renderButtons = (buttons, wrapperClasses, buttonClasses, wrapperAttributes) => {
   if (!buttons) return "";
-
   const buttonList = buttons.map((button, index) => (
     <Button key={index} data={button} classes={buttonClasses}>
       {/* {button?.media && (
@@ -29,10 +23,7 @@ export const renderButtons = (
   ));
 
   return (
-    <div
-      className={classNames("c-actions", wrapperClasses)}
-      {...wrapperAttributes}
-    >
+    <div className={classNames("c-actions", wrapperClasses)} {...wrapperAttributes}>
       {buttonList}
     </div>
   );

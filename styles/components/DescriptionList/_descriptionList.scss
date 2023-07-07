@@ -3,8 +3,7 @@
 .container {
   margin: 0;
   padding: global.rem(24) 0 0;
-  .listTitle {
-  }
+
   .list {
     &.columns {
       display: flex;
@@ -14,7 +13,6 @@
       }
     }
   }
-
   dt {
     color: global.$color-grey;
     @include global.fontSize(20, 24);

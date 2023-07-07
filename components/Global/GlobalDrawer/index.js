@@ -5,7 +5,7 @@ import styles from "@styles/GlobalDrawer/index.module.scss";
 import DrawerBody from "./drawerBody";
 import { gsap } from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
-const GlobalDrawer = (props) => {
+const GlobalDrawer = () => {
   const drawerContent = useStore(({ drawerContent }) => drawerContent);
   const setDrawerContent = useStore((state) => state.setDrawerContent);
   const [drawerIsOpen, setDrawerIsOpen] = useStore((state) => [
@@ -57,13 +57,11 @@ const GlobalDrawer = (props) => {
         el.current.classList.add(styles["is-active"]);
       })
       .set(state.current.close, { y: -40, opacity: 0 })
-
       .set(state.current.footer, { opacity: 0, y: 20 })
       .set(state.current.content, { opacity: 0, y: 20 })
       .set(state.current.backdrop, { yPercent: -100 }, 0)
       .to(state.current.backdrop, { yPercent: 0, opacity: 1 }, 0)
       .to(el.current, { opacity: 1 }, 0)
-
       .to(state.current.close, { y: 0, opacity: 1 }, 0.5)
       .to(state.current.footer, { y: 0, opacity: 1 }, 0.5)
       .to(

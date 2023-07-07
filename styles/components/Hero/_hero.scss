@@ -10,7 +10,6 @@
   & .content:not(:first-child) {
     margin-top: global.rem(24);
     transform: translateY(-30px);
-    // clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
   @include global.mq("phablet") {

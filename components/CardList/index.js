@@ -3,13 +3,11 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/components/CardList/index.module.scss";
 import CardPreview from "@components/CardList/CardPreview";
 import clsx from "clsx";
-
 import { gsap } from "gsap";
-import CustomEase from "gsap/dist/CustomEase";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function CardList(props) {
-  const { anchorId, eyebrow, title, cards, titleSize, componentPadding, classes, id } = props;
+  const { anchorId, cards, componentPadding, classes } = props;
   const cardsRef = useRef();
 
   gsap.registerPlugin(ScrollTrigger);
@@ -23,14 +21,13 @@ export default function CardList(props) {
           trigger: card,
           // markers: true,
           scrub: true,
-          start: "top 80%", // when the top of the trigger hits the top of the viewport
-          end: "40% 70%", // when the bottom of the trigger hits the bottom of the viewport
+          start: "top 80%", // when the top of the trigger hits 80% from the top of the viewport
+          end: "40% 70%", // when 40% from the bottom of the trigger hits 70% from the bottom of the viewport
         },
         opacity: 1,
         y: 0,
       });
     });
-    // tl.to(cards, { scrollTrigger: { trigger: cards, start: "top top", markers: true }, opacity: 1 });
   }, []);
   return (
     <div

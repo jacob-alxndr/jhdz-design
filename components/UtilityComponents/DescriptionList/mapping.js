@@ -1,6 +1,5 @@
 const mapping = (data) => {
-  if (!data) return '';
-  // console.log('[Description List] data: ', data);
+  if (!data) return "";
 
   return {
     ...data,
