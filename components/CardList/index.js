@@ -16,10 +16,11 @@ export default function CardList(props) {
 
     cards.forEach((card) => {
       const tl = gsap.timeline();
+
       tl.to(card, {
         scrollTrigger: {
           trigger: card,
-          // markers: true,
+          markers: true,
           scrub: true,
           start: "top 80%", // when the top of the trigger hits 80% from the top of the viewport
           end: "40% 70%", // when 40% from the bottom of the trigger hits 70% from the bottom of the viewport

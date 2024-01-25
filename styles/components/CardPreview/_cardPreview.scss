@@ -4,6 +4,7 @@
   opacity: 0;
   transform: translateY(64px);
 }
+
 .card {
   overflow: hidden;
   transition: transform 0.3s global.$easing, opacity 0.2s global.$easing;
@@ -16,6 +17,7 @@
     }
     .heading {
       flex: 1;
+
       .title {
         margin-bottom: global.rem(8);
       }
