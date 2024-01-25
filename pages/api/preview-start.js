@@ -18,8 +18,8 @@ export default async (req, res) => {
   res.setPreviewData({});
   // console.log("res", res);
 
-  // res.redirect("/");
-  // res.end();
+  res.redirect("/");
+
   res.statusCode = 307;
   res.setHeader("Location", `${req.query.redirect}`);
   res.end();
