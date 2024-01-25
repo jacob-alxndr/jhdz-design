@@ -27,7 +27,6 @@ const generatePreviewUrl = ({ item, itemType, locale }) => {
 const generateLinks = (req, res, env) => {
   // setup CORS permissions
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://plugins-cdn.datocms.com");
   res.setHeader("Access-Control-Allow-Methods", "POST");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // add any other headers you need
   res.setHeader("Content-Type", "application/json");
