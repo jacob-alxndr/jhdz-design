@@ -134,8 +134,8 @@ export const getComponentPadding = ({
   verticalPaddingBottomMobile,
 }) => {
   const componentPadding = [
-    // verticalPaddingTop && `u-vertical-padding--top-${verticalPaddingTop}`,
-    // verticalPaddingBottom && `u-vertical-padding--bottom-${verticalPaddingBottom}`,
+    verticalPaddingTop && `u-vertical-padding--top-${verticalPaddingTop}`,
+    verticalPaddingBottom && `u-vertical-padding--bottom-${verticalPaddingBottom}`,
     verticalPaddingTopMobile && `u-vertical-padding--top-${verticalPaddingTopMobile}-mobile`,
     verticalPaddingBottomMobile && `u-vertical-padding--bottom-${verticalPaddingBottomMobile}-mobile`,
   ];
