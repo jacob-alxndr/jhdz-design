@@ -13,6 +13,7 @@ query LandingPageQuery($slug: String) {
             ...TextIntroFields
           }
           components {
+      
             ... on FullBleedImageRecord {
                 ...FullBleedImageFields
             }

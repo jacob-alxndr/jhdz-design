@@ -3,13 +3,11 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "../../styles/components/CardList/index.module.scss";
 import CardPreview from "@components/CardList/CardPreview";
 import clsx from "clsx";
-
 import { gsap } from "gsap";
-import CustomEase from "gsap/dist/CustomEase";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function CardList(props) {
-  const { anchorId, eyebrow, title, cards, titleSize, componentPadding, classes, id } = props;
+  const { anchorId, cards, componentPadding, classes } = props;
   const cardsRef = useRef();
 
   gsap.registerPlugin(ScrollTrigger);
@@ -18,19 +16,19 @@ export default function CardList(props) {
 
     cards.forEach((card) => {
       const tl = gsap.timeline();
+
       tl.to(card, {
         scrollTrigger: {
           trigger: card,
           // markers: true,
           scrub: true,
-          start: "top 80%", // when the top of the trigger hits the top of the viewport
-          end: "40% 40%", // when the bottom of the trigger hits the bottom of the viewport
+          start: "top 80%", // when the top of the trigger hits 80% from the top of the viewport
+          end: "40% 70%", // when 40% from the bottom of the trigger hits 70% from the bottom of the viewport
         },
         opacity: 1,
-        y: -64,
+        y: 0,
       });
     });
-    // tl.to(cards, { scrollTrigger: { trigger: cards, start: "top top", markers: true }, opacity: 1 });
   }, []);
   return (
     <div
@@ -42,11 +40,6 @@ export default function CardList(props) {
         classes
       )}
     >
-      <div className={styles.heading}>
-        {eyebrow && <span>{eyebrow}</span>}
-        {title && <div className={clsx(styles.title, `u-heading--${titleSize}`)}>{title}</div>}
-      </div>
-
       {cards && (
         <div className={styles.content} ref={cardsRef}>
           {cards?.map((c, i) => (

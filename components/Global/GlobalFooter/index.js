@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@styles/GlobalFooter/index.module.scss";
 import clsx from "clsx";
 
-const GlobalFooter = (props) => {
+const GlobalFooter = () => {
   return (
     <footer className={clsx(styles.container, "padding-x-md")}>
       <div className={styles.content}>

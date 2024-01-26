@@ -127,13 +127,12 @@ export const pollForElement = (target, callback) => {
   }, 100);
 };
 
-export const getComponentPadding = (data) => {
-  const {
-    verticalPaddingTop,
-    verticalPaddingBottom,
-    verticalPaddingTopMobile,
-    verticalPaddingBottomMobile,
-  } = data;
+export const getComponentPadding = ({
+  verticalPaddingTop,
+  verticalPaddingBottom,
+  verticalPaddingTopMobile,
+  verticalPaddingBottomMobile,
+}) => {
   const componentPadding = [
     verticalPaddingTop && `u-vertical-padding--top-${verticalPaddingTop}`,
     verticalPaddingBottom && `u-vertical-padding--bottom-${verticalPaddingBottom}`,

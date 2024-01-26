@@ -44,22 +44,4 @@ const ButtonExternalLink = React.forwardRef(
 
 ButtonExternalLink.displayName = "Button External Link";
 
-// ButtonExternalLink.propTypes = {
-//   btnData: PropTypes.object,
-//   getBtnContent: PropTypes.func,
-//   /**
-//    * HTML attributes that should be applied to button
-//    */
-//   attr: PropTypes.object,
-//   handleOnClick: PropTypes.func,
-//   handleMouseEnter: PropTypes.func,
-//   handleMouseLeave: PropTypes.func,
-//   handleMouseMove: PropTypes.func,
-//   setClasses: PropTypes.func,
-//   /**
-//    * Should no default styles be applied?
-//    */
-//   clean: PropTypes.bool,
-// };
-
 export default ButtonExternalLink;

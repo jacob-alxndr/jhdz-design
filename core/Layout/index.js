@@ -24,7 +24,6 @@ export default function Layout({
   const setNavigationData = useStore((state) => state.setNavigationData);
   const drawerData = useStore(({ drawerData }) => drawerData);
   const setDrawerData = useStore((state) => state.setDrawerData);
-  const pageRef = useRef();
 
   useEffect(() => {
     // console.log("context", context);
@@ -50,12 +49,6 @@ export default function Layout({
   };
   return (
     <AnimatePresence onExitComplete={onExitComplete} initial={false}>
-      {/* <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        exit={{ opacity: 0 }}
-      > */}
       <Head key={"head"}>
         <title>Jaime Isaac Hernández</title>
         <meta property="og:title" content="Jaime Isaac Hernández" />

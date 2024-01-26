@@ -3,7 +3,7 @@ import styles from "@styles/VideoPlayer/index.module.scss";
 import { StructuredText } from "react-datocms";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
-const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 import { useStore } from "@lib/store";
 const VideoPlayer = (props) => {
   const { url, componentPadding, caption } = props;
@@ -24,7 +24,7 @@ const VideoPlayer = (props) => {
           playsinline={true}
           playing={true}
           muted
-          config={{ iframeParams: { fullscreen: 0 } }}
+          // config={{ iframeParams: { fullscreen: 0 } }}
         />
       )}
 

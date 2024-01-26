@@ -22,8 +22,8 @@ const Hero = (props) => {
     const headingEl = headingRef?.current;
     const textContentEl = textContentRef?.current;
     const imgEl = imgRef?.current?.querySelector("div");
-
     const tl = gsap.timeline();
+
     tl.to(headingEl, {
       delay: 0.2,
       y: 0,

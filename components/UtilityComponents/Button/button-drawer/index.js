@@ -7,17 +7,7 @@ import { StructuredText } from "react-datocms";
 
 const ButtonDrawer = React.forwardRef(
   (
-    {
-      data,
-      fireTrackClick,
-      getBtnContent,
-      onClick,
-      setClasses,
-      onMouseEnter,
-      onMouseLeave,
-      onMouseMove,
-      clean,
-    },
+    { data, getBtnContent, onClick, setClasses, onMouseEnter, onMouseLeave, onMouseMove, clean },
     ref
   ) => {
     const setDrawerContent = useStore((state) => state.setDrawerContent);
@@ -69,11 +59,9 @@ const ButtonDrawer = React.forwardRef(
     useEffect(() => {
       // Add the escape listener to close the drawer
       document.addEventListener("keyup", escapeDrawer);
-
       return () => {
         document.removeEventListener("keyup", escapeDrawer);
       };
-
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

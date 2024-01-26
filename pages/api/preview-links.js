@@ -4,7 +4,7 @@
 // into a canonical URL within the website
 const generatePreviewUrl = ({ item, itemType, locale }) => {
   const localePrefix = locale === "en" ? "" : `/${locale}`;
-  console.log("item, itemType, locale: ", item, itemType, locale);
+
   switch (itemType.attributes.api_key) {
     case "home":
       // return `/`;

@@ -4,7 +4,6 @@ const mapping = (data) => {
 
   return {
     ...data,
-
     componentPadding: getComponentPadding(data),
   };
 };

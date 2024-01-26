@@ -5,7 +5,7 @@ import styles from "@styles/GlobalDrawer/index.module.scss";
 import DrawerBody from "./drawerBody";
 import { gsap } from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
-const GlobalDrawer = (props) => {
+const GlobalDrawer = () => {
   const drawerContent = useStore(({ drawerContent }) => drawerContent);
   const setDrawerContent = useStore((state) => state.setDrawerContent);
   const [drawerIsOpen, setDrawerIsOpen] = useStore((state) => [
@@ -20,7 +20,6 @@ const GlobalDrawer = (props) => {
     close: null,
     content: null,
     footer: null,
-    background: null,
     backdrop: null,
     site: null,
   });
@@ -34,9 +33,7 @@ const GlobalDrawer = (props) => {
   }, [drawerIsOpen]);
 
   const handleOnShow = () => {
-    el.current.classList.add(styles["is-active"]);
-    state.current.backdrop = el.current.querySelector(`.${styles.backdrop__background}`);
-    state.current.background = drawerRef.current.querySelector(`.${styles.background}`);
+    state.current.backdrop = document?.body?.querySelector(`.drawer_backdrop__background`);
     state.current.content = drawerRef.current.querySelector(`.${styles.content}`);
     state.current.footer = drawerRef.current.querySelector(`.${styles.drawerFooter}`);
     state.current.close = drawerRef.current.querySelector(`.${styles.header}`);
@@ -50,6 +47,7 @@ const GlobalDrawer = (props) => {
           gsap.set(el.current, { clearProps: true });
           // gsap.set(state.current.site, { clearProps: true });
           el.current.classList.remove(styles["is-active"]);
+          document.body.classList.remove("is-locked");
           setDrawerIsOpen(false);
           setDrawerContent("");
         },
@@ -59,16 +57,26 @@ const GlobalDrawer = (props) => {
         el.current.classList.add(styles["is-active"]);
       })
       .set(state.current.close, { y: -40, opacity: 0 })
-      .set(state.current.background, { xPercent: 100 })
-      .set(state.current.footer, { opacity: 0 })
+      .set(state.current.footer, { opacity: 0, y: 20 })
       .set(state.current.content, { opacity: 0, y: 20 })
       .set(state.current.backdrop, { yPercent: -100 }, 0)
       .to(state.current.backdrop, { yPercent: 0, opacity: 1 }, 0)
       .to(el.current, { opacity: 1 }, 0)
-      .to(state.current.background, { xPercent: 0 }, 0)
       .to(state.current.close, { y: 0, opacity: 1 }, 0.5)
-      .to(state.current.footer, { opacity: 1 }, 0.5)
-      .to(state.current.content, { y: 0, opacity: 1 }, 0.5);
+      .to(state.current.footer, { y: 0, opacity: 1 }, 0.5)
+      .to(
+        state.current.content,
+        {
+          y: 0,
+          opacity: 1,
+          onComplete: () => {
+            document.body.classList.add("is-locked");
+
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+          },
+        },
+        0.5
+      );
   };
   const handleOnHide = () => {
     if (state.current.tl) {
@@ -79,18 +87,15 @@ const GlobalDrawer = (props) => {
   return (
     <div className={clsx(styles.backdrop, "padding-x-md")} ref={el}>
       <div className={styles.drawerBodyWrapper}>
-        <DrawerBody
-          onClose={handleOnHide}
-          // drawerClass={drawerClass}
-          // ariaLabel={ariaLabel}
-          // title={title}
-          ref={drawerRef}
-        >
+        <DrawerBody onClose={handleOnHide} ref={drawerRef}>
           {drawerContent}
         </DrawerBody>
       </div>
 
-      <div className={styles.backdrop__background} onClick={handleOnHide}></div>
+      <div
+        className={clsx(styles.backdrop__background, "drawer_backdrop__background")}
+        onClick={handleOnHide}
+      ></div>
     </div>
   );
 };
