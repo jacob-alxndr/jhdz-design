@@ -7,6 +7,7 @@ import mappingNav from "@components/Global/GlobalNavigation/mapping";
 import mappingDrawer from "@components/Global/GlobalDrawer/mapping";
 import { motion as m, AnimatePresence } from "framer-motion";
 import GlobalFooter from "@components/Global/GlobalFooter";
+import PreviewToolbar from "core/PreviewToolbar";
 import PageTransition from "core/PageTransition";
 
 export default function Layout({
@@ -24,10 +25,12 @@ export default function Layout({
   const setNavigationData = useStore((state) => state.setNavigationData);
   const drawerData = useStore(({ drawerData }) => drawerData);
   const setDrawerData = useStore((state) => state.setDrawerData);
+  const setPreview = useStore(({ setPreview }) => setPreview);
 
   useEffect(() => {
     // console.log("context", context);
-  }, []);
+    setPreview(preview);
+  }, [preview]);
 
   useEffect(() => {
     if (!navigationData) {
@@ -79,6 +82,7 @@ export default function Layout({
         }}
       />
       {children}
+      <PreviewToolbar preview={preview} />
       <GlobalFooter key={"GlobalFooter"} />
       {/* </m.div> */}
     </AnimatePresence>

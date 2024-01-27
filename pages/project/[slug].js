@@ -1,10 +1,11 @@
 import dynamic from "next/dynamic";
 import GET_LANDING_PAGE from "operations/queries/getLandingPages";
 import GET_ALL_LANDING_PAGES from "operations/queries/getAllLandingPages";
-import { request } from "@lib/datocms";
+import { gqlStaticPropsWithSubscription, gqlStaticPaths } from "@lib/datocms";
 import { getAllSlugs } from "@lib/data";
 import Layout from "core/Layout";
 import PageTransition from "core/PageTransition";
+import { useQuerySubscription } from "react-datocms/use-query-subscription";
 
 const components = {
   global_drawer: {
@@ -37,20 +38,22 @@ const components = {
   },
 };
 
-export default function LandingPage({ data }) {
+export default function LandingPage({ subscription, preview }) {
   const {
-    page: {
-      0: {
-        textIntro,
-        components: bodyComponents,
-        landingPageFooter: { 0: landingPageFooter },
+    data: {
+      page: {
+        0: {
+          textIntro,
+          components: bodyComponents,
+          landingPageFooter: { 0: landingPageFooter },
+        },
       },
+      // _site,
+      globalNavigation,
+      globalDrawer,
+      globalFooter,
     },
-    // _site,
-    globalNavigation,
-    globalDrawer,
-    globalFooter,
-  } = data;
+  } = useQuerySubscription(subscription);
 
   return (
     <PageTransition>
@@ -60,32 +63,50 @@ export default function LandingPage({ data }) {
         drawerData={globalDrawer}
         footerData={globalFooter}
         data={[textIntro, ...bodyComponents, landingPageFooter]}
+        preview={preview}
       />
     </PageTransition>
   );
 }
 
-export async function getStaticPaths() {
-  const data = await request({
-    query: GET_ALL_LANDING_PAGES,
-  });
-  const paths = getAllSlugs(data?.pages);
-  return {
-    paths,
-    fallback: false,
-  };
-}
+export const getStaticProps = gqlStaticPropsWithSubscription(GET_LANDING_PAGE, {
+  revalidate: 10,
+  requiredKeys: ["page"],
+});
 
-export async function getStaticProps(context) {
-  const slug = context.params.slug;
-  const data = await request({
-    query: GET_LANDING_PAGE,
-    variables: { limit: 10, slug },
-    includeDrafts: context.preview,
-    preview: context.preview,
-  });
+export const getStaticPaths = gqlStaticPaths(GET_ALL_LANDING_PAGES, {
+  paramName: "slug",
+  dataToParams: ({ pages }) =>
+    pages.map((p) => ({
+      page: p,
+    })),
+  paginatedQuery: {
+    first: 10,
+    requiredKey: "pages",
+  },
+});
 
-  return {
-    props: { data },
-  };
-}
+// export async function getStaticPaths() {
+//   const data = await request({
+//     query: GET_ALL_LANDING_PAGES,
+//   });
+//   const paths = getAllSlugs(data?.pages);
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps(context) {
+//   const slug = context.params.slug;
+//   const data = await request({
+//     query: GET_LANDING_PAGE,
+//     variables: { limit: 10, slug },
+//     includeDrafts: context.preview,
+//     preview: context.preview,
+//   });
+
+//   return {
+//     props: { data },
+//   };
+// }

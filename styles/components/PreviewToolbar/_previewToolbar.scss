@@ -1,0 +1,124 @@
+@use "/styles/shared/global";
+
+.container {
+  background: global.$color-black;
+  border: 1px solid global.$color-white;
+  border-radius: global.rem(16);
+  bottom: global.rem(30);
+  box-shadow: 0px 4px 22px rgba(22, 30, 39, 0.12);
+  color: global.$color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: global.rem(16);
+  left: global.rem(30);
+  max-width: 380px;
+  opacity: 0;
+  padding: global.rem(24) global.rem(32) global.rem(24) global.rem(56);
+  pointer-events: none;
+  position: fixed;
+  transform: translateY(20px);
+  z-index: global.$zIndex-max--preview;
+  // @include global.size(380px, auto);
+  @include global.fontSize(14, 18);
+  @include global.font-primaryN4();
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  &.is-collapsed {
+    padding: global.rem(24) global.rem(32) global.rem(24) global.rem(24);
+  }
+}
+
+.close,
+.logo {
+  body:not(.is-touch) & {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.close {
+  line-height: 0;
+  padding: 0;
+  position: absolute;
+  right: global.rem(11);
+  top: global.rem(11);
+}
+
+.logo {
+  // left: 16px;
+  // padding: 0;
+  // position: absolute;
+  // top: 50%;
+  // transform: translateY(-50%);
+}
+.title {
+  padding: 0 0 global.rem(4);
+  font-weight: 700;
+  color: global.$color-white;
+  //   @include global.font-primaryN7();
+}
+
+.actions {
+  column-gap: global.rem(10);
+  display: flex;
+  flex-direction: row;
+  gap: global.rem(16);
+  margin: global.rem(8) 0 0 0;
+}
+
+.button {
+  align-items: center;
+  align-self: flex-start;
+
+  background-color: rgba(global.$color-black, 1);
+  border-radius: global.rem(50);
+  color: global.$color-white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  // padding: global.rem(7) global.rem(16);
+  position: relative;
+  transition: background-color 0.3s ease-in-out;
+  //   @include global.font-primaryN7();
+  @include global.fontSize(14, 18);
+
+  .message,
+  .overlay {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .message {
+    opacity: 0;
+  }
+
+  .overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    @include global.size(100%);
+  }
+
+  .active {
+    opacity: 1;
+  }
+
+  body:not(.is-touch) & {
+    &:hover {
+      // background: rgba(global.$color-white, 0.2);
+      cursor: pointer;
+    }
+  }
+}

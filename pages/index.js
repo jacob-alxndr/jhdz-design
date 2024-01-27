@@ -1,8 +1,10 @@
-import { request } from "../lib/datocms";
+// import { request } from "../lib/datocms";
 import GET_HOME from "operations/queries/getHome";
 import Layout from "core/Layout";
 import dynamic from "next/dynamic";
 import PageTransition from "core/PageTransition";
+import { gqlStaticPropsWithSubscription } from "../lib/datocms";
+import { useQuerySubscription } from "react-datocms";
 const components = {
   global_navigation: {
     comp: dynamic(() => import("@components/Global/GlobalNavigation")),
@@ -26,14 +28,16 @@ const components = {
   },
 };
 
-export default function Home({ data }) {
+export default function Home({ subscription, preview }) {
   const {
-    home: { hero, components: bodyComponents },
-    // _site,
-    globalNavigation,
-    globalDrawer,
-    globalFooter,
-  } = data;
+    data: {
+      home: { hero, components: bodyComponents },
+      // _site,
+      globalNavigation,
+      globalDrawer,
+      globalFooter,
+    },
+  } = useQuerySubscription(subscription);
 
   return (
     <PageTransition>
@@ -43,18 +47,22 @@ export default function Home({ data }) {
         drawerData={globalDrawer}
         footerData={globalFooter}
         data={[hero, ...bodyComponents]}
+        preview={preview}
       />
     </PageTransition>
   );
 }
-export async function getStaticProps(context) {
-  const data = await request({
-    query: GET_HOME,
-    variables: { limit: 10 },
-    includeDrafts: context.preview,
-    preview: context.preview,
-  });
-  return {
-    props: { data },
-  };
-}
+// export async function getStaticProps(context) {
+//   const data = await request({
+//     query: GET_HOME,
+//     variables: { limit: 10 },
+//     includeDrafts: context.preview,
+//     preview: context.preview,
+//   });
+//   return {
+//     props: { data },
+//   };
+// }
+export const getStaticProps = gqlStaticPropsWithSubscription(GET_HOME, {
+  revalidate: 10,
+});
