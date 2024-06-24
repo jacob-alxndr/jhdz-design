@@ -11,20 +11,21 @@ const FullBleedImage = (props) => {
       <div className={styles.image__wrapper}>
         {image &&
           image.map((img) => (
-            <div className={styles.image} key={img?.id}>
-              <Image
-                alt={img?.image?.alt}
-                fadeInDuration={2000}
-                lazyLoad={true}
-                priority={true}
-                data={img?.image?.responsiveImage}
-              />
-            </div>
+            <Image
+              key={img?.id}
+              alt={img?.image?.alt}
+              fadeInDuration={2000}
+              lazyLoad={true}
+              priority={true}
+              data={img?.image?.responsiveImage}
+            />
           ))}
       </div>
-      <div className={styles.caption}>
-        <StructuredText data={caption} />
-      </div>
+      {caption && (
+        <div className={styles.caption}>
+          <StructuredText data={caption} />
+        </div>
+      )}
     </div>
   );
 };

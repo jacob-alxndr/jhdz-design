@@ -18,10 +18,10 @@ export default async (req, res) => {
   res.setPreviewData({});
   // console.log("res", res);
 
-  res.redirect("/");
+  // res.redirect("/");
 
   res.statusCode = 307;
-  // res.setHeader("Location", `${req.query.redirect}`);
+  res.setHeader("Location", `${req.query.redirect}`);
   res.end();
   // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities

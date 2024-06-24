@@ -1,0 +1,31 @@
+@use "/styles/shared/global";
+
+.gridContainer {
+  --gc-col-min: 200px;
+  --gc-col-max: 1fr;
+  --gc-align: stretch;
+  --gc-justify: center;
+  --gc-col-count: auto-fit;
+  --gc-grid-row-gap: 2rem;
+  --gc-grid-column-gap: 2rem;
+  display: block;
+  grid-template-columns: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(
+    var(--gc-col-count, auto-fill),
+    minmax(var(--gc-col-min, --gc-col-max), 1fr)
+  );
+  gap: var(--gc-grid-row-gap) var(--gc-grid-column-gap);
+  align-items: var(--gc-align);
+  justify-items: var(--gc-justify);
+  > * {
+    padding-inline: 0;
+  }
+
+  @include global.mq("tablet") {
+    grid-template-columns: 1fr;
+  }
+}

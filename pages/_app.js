@@ -7,6 +7,8 @@ import { workSans } from "@lib/fonts";
 import { useStore } from "@lib/store";
 import { useRouter } from "next/router";
 import GlobalDrawer from "@components/Global/GlobalDrawer";
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }) {
   const isTouch = useStore(({ isTouch }) => isTouch);
@@ -14,7 +16,6 @@ export default function App({ Component, pageProps }) {
   const drawerData = useStore(({ drawerData }) => drawerData);
   const router = useRouter();
   const pageKey = router.asPath;
-
   useEffect(() => {
     if (isTouch) {
       document.body.classList.add("is-touch");
@@ -47,11 +48,13 @@ export default function App({ Component, pageProps }) {
           :root {
             --font-primary: ${workSans.style.fontFamily};
           }
-        `}</style>
+          `}</style>
       </Head>
-      <GlobalNavigation />
-      <GlobalDrawer {...drawerData} />
-      <Component {...pageProps} key={pageKey} />
+      <QueryClientProvider client={queryClient}>
+        <GlobalNavigation />
+        <GlobalDrawer {...drawerData} />
+        <Component {...pageProps} key={pageKey} />
+      </QueryClientProvider>
     </>
   );
 }

@@ -4,6 +4,7 @@ import TextPromoFields from "operations/fragments/textPromo";
 import MediaPromoFields from "operations/fragments/mediaPromo";
 import VideoPlayerFields from "operations/fragments/videoPlayer";
 import GlobalDrawerFields from "operations/fragments/drawer";
+import GridLayoutFields from "operations/fragments/gridLayout";
 import LandingPageFooterFields from "operations/fragments/landingPageFooter";
 const GET_LANDING_PAGE = `
 query LandingPageQuery($slug: String) {
@@ -26,6 +27,9 @@ query LandingPageQuery($slug: String) {
             ... on VideoPlayerRecord {
                 ...VideoPlayerFields
             }
+            ... on GridLayoutRecord {
+                ...GridLayoutFields
+            }
           }
           landingPageFooter{ ${LandingPageFooterFields}}
     }   
@@ -37,6 +41,7 @@ ${FullBleedImageFields}
 ${TextPromoFields}
 ${MediaPromoFields}
 ${VideoPlayerFields}
+${GridLayoutFields}
 
 
 `;

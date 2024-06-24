@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import GET_LANDING_PAGE from "operations/queries/getLandingPages";
+import GET_LANDING_PAGE from "operations/queries/getLandingPage";
 import GET_ALL_LANDING_PAGES from "operations/queries/getAllLandingPages";
 import { gqlStaticPropsWithSubscription, gqlStaticPaths } from "@lib/datocms";
 import { getAllSlugs } from "@lib/data";
@@ -31,6 +31,10 @@ const components = {
   video_player: {
     comp: dynamic(() => import("@components/VideoPlayer")),
     mapping: require(`@components/VideoPlayer/mapping`),
+  },
+  grid_layout: {
+    comp: dynamic(() => import("@components/GridLayout")),
+    mapping: require(`@components/GridLayout/mapping`),
   },
   landing_page_footer: {
     comp: dynamic(() => import("@components/LandingPageFooter")),
@@ -81,7 +85,7 @@ export const getStaticPaths = gqlStaticPaths(GET_ALL_LANDING_PAGES, {
       page: p,
     })),
   paginatedQuery: {
-    first: 10,
+    first: 0,
     requiredKey: "pages",
   },
 });

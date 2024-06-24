@@ -7,6 +7,7 @@ import { useStore } from "@lib/store";
 import { IconAbout, IconLogo } from "@components/UtilityComponents/Icons";
 import { gsap } from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
+import Link from "next/link";
 const GlobalNavigation = (props) => {
   const { classes } = props;
   const drawerData = useStore(({ drawerData }) => drawerData);
@@ -45,6 +46,8 @@ const GlobalNavigation = (props) => {
           >
             <IconLogo tittleRef={tittleRef} arcRef={arcRef} crossBarRef={crossBarRef} />
           </Button>
+          {/* <Link href="/work">work</Link> */}
+
           <Button
             data={{
               buttonType: "content-drawer",
