@@ -11,9 +11,7 @@ export const TODOComponent = process.env.NEXT_PUBLIC__PRODUCTION__
   : ({ _modelApiKey }) => {
       const modelApiKey = _modelApiKey || "";
       React.useEffect(() => {
-        console.warn(
-          `[ComponentLoader] Could not find a component for modelApiKey "${modelApiKey}"`
-        );
+        console.warn(`[ComponentLoader] Could not find a component for modelApiKey "${modelApiKey}"`);
       }, [modelApiKey]);
       return React.createElement(
         "section",
